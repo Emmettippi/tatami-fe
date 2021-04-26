@@ -1,0 +1,77 @@
+.background {
+    background-color: #001f3f;
+    height: 100%;
+    width: 100%;
+}
+
+.tatami-title {
+    display: block;
+    top: 10%;
+    right: 20%;
+    left: 20%;
+    position: fixed;
+    background-color: #0074d9;
+    font-weight: 900;
+    font-family: 'Calibri';
+    font-size: 72px;
+    font-style: italic;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.tatami-login {
+    font-weight: 700;
+    font-family: 'Calibri';
+    font-size: 24px;
+    display: block;
+    top: 35%;
+    right: 30%;
+    left: 30%;
+    position: fixed;
+}
+
+.blue-background {
+    background-color: #0074d9;
+    border-radius: 10px;
+}
+
+.left-login {
+    text-align: right;
+    padding: 15px 8px;
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    width: 40%;
+}
+
+.right-login {
+    position: relative;
+    display: inline-block;
+    width: 60%;
+    padding: 0px 8px;
+}
+
+.login-input {
+    max-width: 100%;
+    background-color: #7fdbff;
+}
+
+.login-btn {
+    width: 50%;
+    font-size: 28px;
+}
+
+.offline-btn {
+    font-size: 28px;
+}
+
+.error-message {
+    background-color: #7fdbff;
+    color: #ff0000;
+    font-family: 'Times';
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    padding: 4px 8px;
+}

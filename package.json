@@ -11,7 +11,10 @@
         "e2e": "ng e2e",
         "electron-build-dev": "ng build --base-href ./ && tsc --p electron && electron .",
         "electron-build-prod": "ng build --prod --base-href ./ && tsc --p electron && electron .",
-        "package-win": "electron-packager . --platform=win32"
+        "package-macos": "electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds",
+        "package-win32": "electron-packager . test --overwrite --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName=ObjectMethod --version-string.ProductName=\"Electron App - Test\"",
+        "package-win64": "electron-packager . test --overwrite --platform=win32 --arch=x64 --prune=true --out=release-builds --version-string.CompanyName=ObjectMethod --version-string.ProductName=\"Electron App - Test\"",
+        "package-linux": "electron-packager . test --overwrite --asar=true --platform=linux --arch=x64 --prune=true --out=release-builds"
     },
     "private": true,
     "dependencies": {
@@ -31,6 +34,7 @@
         "@types/chart.js": "^2.8.4",
         "@types/jquery": "^3.5.0",
         "animate.css": "^3.7.2",
+        "bootstrap": "^4.4.1",
         "chart.js": "^2.5.0",
         "core-js": "^2.5.4",
         "easy-pie-chart": "^2.1.7",
