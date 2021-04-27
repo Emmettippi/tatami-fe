@@ -1,4 +1,4 @@
-import { MainService } from './services/main-service.service';
+import { MainService } from './services/main.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 

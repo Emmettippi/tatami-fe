@@ -1,32 +1,52 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from 'src/app/entities/user/user.model';
-import { MainService } from 'src/app/services/main-service.service';
+import { User, UserService } from '../../entities/user';
+import { LanguageService, MainService } from '../../services';
+import { BaseComponent } from '../base/base.component';
 
 @Component({
     selector: 'tatami-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends BaseComponent implements OnInit {
 
     get ipAddress(): string {
         return this.mainService.ipAddress;
     }
-
     set ipAddress(value: string) {
         this.mainService.ipAddress = value;
     }
 
     isRegistration: boolean;
     user: User;
-    errorMessage: string;
+    errorMessages: string[];
+
+    get creationErrorMessages(): string[] {
+        const ret = new Array<string>();
+        this.userService.isValidCreateUser(this.user).forEach((v) => {
+            ret.push(v);
+        });
+        return ret;
+    }
+
+    get loginErrorMessages(): string[] {
+        const ret = new Array<string>();
+        this.userService.isValidLogin(this.user).forEach((v) => {
+            ret.push(v);
+        });
+        return ret;
+    }
 
     constructor(
-        private router: Router,
-        private route: ActivatedRoute,
-        private mainService: MainService
+        protected router: Router,
+        protected route: ActivatedRoute,
+        protected mainService: MainService,
+        protected userService: UserService,
+        protected languageService: LanguageService
     ) {
+        super(router, route, mainService, userService, languageService);
     }
 
     ngOnInit(): void {
@@ -35,11 +55,25 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
-        this.errorMessage = 'Test.';
+        if (this.isLoginEnabled()) {
+            this.jitter++;
+            this.loading++;
+            this.userService.login(this.user.username, this.user.password)
+                .subscribe((response) => {
+
+                }, (error: HttpErrorResponse) => {
+                    console.log(error);
+                    if (error.status >= 400 && error.status < 500) {
+                        this.errorMessages = ['error.400'];
+                    } else if (error.status >= 500) {
+                        this.errorMessages = ['error.500'];
+                    }
+                });
+        }
     }
 
     loginOffline() {
-        this.errorMessage = 'Offline mode.';
+        this.errorMessages = ['Offline mode.'];
     }
 
     registration(isRegistration: boolean) {
@@ -49,29 +83,18 @@ export class LoginComponent implements OnInit {
     }
 
     onRegistration() {
-        this.errorMessage = 'RegistrationTime.';
+        this.errorMessages = ['RegistrationTime.'];
     }
 
     resetErrorMessage() {
-        this.errorMessage = null;
+        this.errorMessages = [];
     }
 
-    isLoginEnabled() {
-        const regexp = new RegExp('\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}');
-        let enabled = this.user.username
-            && this.user.password
-            && this.ipAddress
-            && regexp.test(this.ipAddress);
-        if (enabled) {
-            const ipv4 = this.ipAddress.split('.');
-            for (const byte of ipv4) {
-                const num = parseInt(byte, 10);
-                if (isNaN(num) || num < 0 || num > 255) {
-                    enabled = false;
-                    break;
-                }
-            }
-        }
-        return enabled;
+    isLoginEnabled(): boolean {
+        return !this.loginErrorMessages.length;
+    }
+
+    isRegistrationEnabled(): boolean {
+        return !this.creationErrorMessages.length;
     }
 }

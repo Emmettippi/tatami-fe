@@ -1,0 +1,21 @@
+{
+    "ipAddress": "Indirizzo IP",
+    "username": "Nome Utente",
+    "password": "Password",
+    "email": "Indirizzo E-Mail",
+    "confirmPassword": "Conferma Password",
+    "nickname": "Nickname",
+    "register": "Registrati",
+    "backToLogin": "Torna alla Login",
+    "login": "Login",
+    "startOffline": "Avvia offline",
+    "ipAddress.error": "Indirizzo IP invalido.",
+    "username.error": "Il Nome Utente non può essere vuoto.",
+    "password.error": "La Password non può essere vuota.",
+    "email.error": "L'Indirizzo E-mail non può essere vuoto.",
+    "confirmPassword.error": "Le Password non coincidono.",
+    "newPassword.error": "La nuova Password non può essere vuota.",
+    "nickname.error": "Il Nickname non può essere vuoto.",
+    "error.400": "Errore nella richiesta.",
+    "error.500": "Errore nell'elaborazione della richiesta."
+}

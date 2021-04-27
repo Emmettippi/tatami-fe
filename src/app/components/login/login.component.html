@@ -1,61 +1,70 @@
-<div class="background full">
-    <div class="tatami-title">TATAMI</div>
-    <div *ngIf="!isRegistration" class="row tatami-login">
+<div class="background">
+</div>
+<div class="tatami-title">TATAMI</div>
+<div class="row tatami-login">
+    <ng-container *ngIf="!isRegistration">
         <div class="blue-background">
-            <div class="left-login"> Indirizzo IP:</div>
+            <div class="left-login"> {{t('ipAddress')}}</div>
             <div class="right-login">
                 <input class="login-input" type="text" [(ngModel)]="ipAddress" />
             </div>
-            <div class="left-login"> Username:</div>
+            <div class="left-login"> {{t('username')}}</div>
             <div class="right-login">
                 <input class="login-input" type="text" [(ngModel)]="user.username" />
             </div>
-            <div class="left-login"> Password:</div>
+            <div class="left-login"> {{t('password')}}</div>
             <div class="right-login">
                 <input class="login-input" type="password" [(ngModel)]="user.password" />
             </div>
         </div>
         <div class="login-buttons">
-            <button class="btn btn-secondary login-btn" (click)="registration(true)">Registrati</button>
-            <button class="btn btn-success login-btn" (click)="login()">Login</button>
+            <button class="btn btn-secondary login-btn" (click)="registration(true)">{{t('register')}}</button>
+            <button class="btn btn-success login-btn" [disabled]="!isLoginEnabled()"
+                (click)="login()">{{t('login')}}</button>
         </div>
-        <div *ngIf="errorMessage" class="error-message" (click)="resetErrorMessage()">{{errorMessage}}</div>
-        <div class="login-offline">
-            <button class="btn btn-light offline-btn" (click)="loginOffline()">Avvia offline</button>
+        <div *ngFor="let errorMessage of (loginErrorMessages && loginErrorMessages.length ? loginErrorMessages : errorMessages)"
+            class="error-message" (click)="resetErrorMessage()">
+            {{t(errorMessage)}}
         </div>
-    </div>
-    <div *ngIf="isRegistration" class="row tatami-login">
-        <div class="left-login"> Indirizzo IP:</div>
-        <div class="right-login">
-            <input class="login-input" type="text" [(ngModel)]="ipAddress" />
-        </div>
-        <div class="left-login"> Username:</div>
-        <div class="right-login">
-            <input class="login-input" type="text" [(ngModel)]="user.username" />
-        </div>
-        <div class="left-login"> Password:</div>
-        <div class="right-login">
-            <input class="login-input" type="password" [(ngModel)]="user.password" />
-        </div>
-        <div class="left-login"> Conferma password:</div>
-        <div class="right-login">
-            <input class="login-input" type="password" [(ngModel)]="user.password" />
-        </div>
-        <div class="left-login"> Email:</div>
-        <div class="right-login">
-            <input class="login-input" type="text" [(ngModel)]="user.email" />
-        </div>
-        <div class="left-login"> Nickname:</div>
-        <div class="right-login">
-            <input class="login-input" type="text" [(ngModel)]="user.nickname" />
+    </ng-container>
+    <ng-container *ngIf="isRegistration">
+        <div class="blue-background">
+            <div class="left-login"> {{t('ipAddress')}}:</div>
+            <div class="right-login">
+                <input class="login-input" type="text" [(ngModel)]="ipAddress" />
+            </div>
+            <div class="left-login"> {{t('username')}}:</div>
+            <div class="right-login">
+                <input class="login-input" type="text" [(ngModel)]="user.username" />
+            </div>
+            <div class="left-login"> {{t('password')}}:</div>
+            <div class="right-login">
+                <input class="login-input" type="password" [(ngModel)]="user.password" />
+            </div>
+            <div class="left-login"> {{t('confirmPassword')}}:</div>
+            <div class="right-login">
+                <input class="login-input" type="password" [(ngModel)]="user.newPassword" />
+            </div>
+            <div class="left-login"> {{t('email')}}:</div>
+            <div class="right-login">
+                <input class="login-input" type="text" [(ngModel)]="user.email" />
+            </div>
+            <div class="left-login"> {{t('nickname')}}:</div>
+            <div class="right-login">
+                <input class="login-input" type="text" [(ngModel)]="user.nickname" />
+            </div>
         </div>
         <div class="login-buttons">
-            <button class="btn btn-secondary login-btn" (click)="registration(false)">Registrati</button>
-            <button class="btn btn-success login-btn" (click)="login()">Registrati</button>
+            <button class="btn btn-secondary login-btn" (click)="registration(false)">{{t('backToLogin')}}</button>
+            <button class="btn btn-success login-btn" [disabled]="!isRegistrationEnabled()"
+                (click)="onRegistration()">{{t('register')}}</button>
         </div>
-        <div *ngIf="errorMessage" class="error-message" (click)="resetErrorMessage()">{{errorMessage}}</div>
-        <div class="login-offline">
-            <button class="btn btn-light offline-btn" (click)="loginOffline()">Avvia offline</button>
+        <div *ngFor="let errorMessage of (creationErrorMessages && creationErrorMessages.length ? creationErrorMessages : errorMessages)"
+            class="error-message" (click)="resetErrorMessage()">
+            {{t(errorMessage)}}
         </div>
+    </ng-container>
+    <div class="login-offline">
+        <button class="btn btn-light offline-btn" (click)="loginOffline()">{{t('startOffline')}}</button>
     </div>
 </div>

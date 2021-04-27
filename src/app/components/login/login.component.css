@@ -1,15 +1,9 @@
-.background {
-    background-color: #001f3f;
-    height: 100%;
-    width: 100%;
-}
-
 .tatami-title {
     display: block;
     top: 10%;
     right: 20%;
     left: 20%;
-    position: fixed;
+    position: absolute;
     background-color: #0074d9;
     font-weight: 900;
     font-family: 'Calibri';
@@ -28,7 +22,8 @@
     top: 35%;
     right: 30%;
     left: 30%;
-    position: fixed;
+    position: absolute;
+    padding-bottom: 20px;
 }
 
 .blue-background {

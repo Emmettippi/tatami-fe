@@ -7,8 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
+import { BaseComponent } from './components/base/base.component';
 
-import { MainService } from './services/main-service.service';
+import { MainService, LanguageService } from './services';
 import { UserService } from './entities/user/user.service';
 import { UserRelationService } from './entities/user-relation/user-relation.service';
 
@@ -16,6 +17,7 @@ import { UserRelationService } from './entities/user-relation/user-relation.serv
     declarations: [
         AppComponent
         , LoginComponent
+        , BaseComponent
     ],
     imports: [
         BrowserModule
@@ -25,6 +27,7 @@ import { UserRelationService } from './entities/user-relation/user-relation.serv
     ],
     providers: [
         MainService
+        , LanguageService
         , UserService
         , UserRelationService
     ],
