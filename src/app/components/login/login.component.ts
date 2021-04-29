@@ -12,6 +12,9 @@ import { BaseComponent } from '../base/base.component';
 })
 export class LoginComponent extends BaseComponent implements OnInit {
 
+    get loading(): number {
+        return this.mainService.loading;
+    }
     get ipAddress(): string {
         return this.mainService.ipAddress;
     }
@@ -57,11 +60,13 @@ export class LoginComponent extends BaseComponent implements OnInit {
     login() {
         if (this.isLoginEnabled()) {
             this.jitter++;
-            this.loading++;
+            this.mainService.loading++;
             this.userService.login(this.user.username, this.user.password)
                 .subscribe((response) => {
+                    this.mainService.loading--;
 
                 }, (error: HttpErrorResponse) => {
+                    this.mainService.loading--;
                     console.log(error);
                     if (error.status >= 400 && error.status < 500) {
                         this.errorMessages = ['error.400'];

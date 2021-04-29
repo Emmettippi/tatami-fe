@@ -1,3 +1,4 @@
+import { LoaderComponent } from './components/loader/loader.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +17,7 @@ import { UserRelationService } from './entities/user-relation/user-relation.serv
 @NgModule({
     declarations: [
         AppComponent
+        , LoaderComponent
         , LoginComponent
         , BaseComponent
     ],

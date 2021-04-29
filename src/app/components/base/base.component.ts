@@ -10,7 +10,6 @@ import { LanguageService, MainService } from './../../services';
 export class BaseComponent {
 
     jitter = 0;
-    loading = 0;
 
     get online(): boolean {
         return this.mainService.online;

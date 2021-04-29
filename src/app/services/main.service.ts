@@ -13,4 +13,5 @@ export class MainService {
     public ipAddress: string;
     public readonly IP_REGEX = new RegExp('^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$');
     public language: string;
+    public loading = 0;
 }

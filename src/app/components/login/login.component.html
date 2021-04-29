@@ -1,5 +1,6 @@
 <div class="background">
 </div>
+<tatami-loader *ngIf="loading"></tatami-loader>
 <div class="tatami-title">TATAMI</div>
 <div class="row tatami-login">
     <ng-container *ngIf="!isRegistration">
@@ -22,8 +23,10 @@
             <button class="btn btn-success login-btn" [disabled]="!isLoginEnabled()"
                 (click)="login()">{{t('login')}}</button>
         </div>
-        <div *ngFor="let errorMessage of (loginErrorMessages && loginErrorMessages.length ? loginErrorMessages : errorMessages)"
-            class="error-message" (click)="resetErrorMessage()">
+        <div *ngFor="let errorMessage of loginErrorMessages" class="error-message">
+            {{t(errorMessage)}}
+        </div>
+        <div *ngFor="let errorMessage of errorMessages" class="error-message" (click)="resetErrorMessage()">
             {{t(errorMessage)}}
         </div>
     </ng-container>
@@ -59,8 +62,10 @@
             <button class="btn btn-success login-btn" [disabled]="!isRegistrationEnabled()"
                 (click)="onRegistration()">{{t('register')}}</button>
         </div>
-        <div *ngFor="let errorMessage of (creationErrorMessages && creationErrorMessages.length ? creationErrorMessages : errorMessages)"
-            class="error-message" (click)="resetErrorMessage()">
+        <div *ngFor="let errorMessage of creationErrorMessages" class="error-message">
+            {{t(errorMessage)}}
+        </div>
+        <div *ngFor="let errorMessage of errorMessages" class="error-message" (click)="resetErrorMessage()">
             {{t(errorMessage)}}
         </div>
     </ng-container>
