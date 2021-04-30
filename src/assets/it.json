@@ -16,6 +16,10 @@
     "confirmPassword.error": "Le Password non coincidono.",
     "newPassword.error": "La nuova Password non può essere vuota.",
     "nickname.error": "Il Nickname non può essere vuoto.",
+    "error.0": "Connection timeout: impossibile connettersi al server.",
+    "error.login": "Credenziali errate.",
     "error.400": "Errore nella richiesta.",
-    "error.500": "Errore nell'elaborazione della richiesta."
+    "error.500": "Errore nell'elaborazione della richiesta.",
+    "creation.success": "L'utenza è stata creata con successo.",
+    "creation.error": "Impossibile creare l'utenza: username o mail già utilizzati."
 }
