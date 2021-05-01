@@ -104,3 +104,58 @@ textarea {
         transform:rotate(360deg);
     }
 }
+
+.anim-fade-in {
+    animation: fade-in;
+    animation-timing-function: ease-out;
+    animation-duration: 3s;
+    animation-delay: -2.4s;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.delay-1 {
+    animation-delay: -2.3s;
+}
+
+.delay-2 {
+    animation-delay: -2.2s;
+}
+
+.delay-3 {
+    animation-delay: -2.1s;
+}
+
+.delay-4 {
+    animation-delay: -2.0s;
+}
+
+.delay-5 {
+    animation-delay: -1.9s;
+}
+
+.delay-6 {
+    animation-delay: -1.8s;
+}
+
+.delay-7 {
+    animation-delay: -1.7s;
+}
+
+.delay-8 {
+    animation-delay: -1.6s;
+}
+
+.delay-9 {
+    animation-delay: -1.5s;
+}
