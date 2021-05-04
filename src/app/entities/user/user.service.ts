@@ -1,8 +1,10 @@
+import { UserSearchModel } from './user-search.model';
+import { MyRelations } from './../user-relation/my-relations.model';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { User } from './user.model';
 import { MainService } from '../../services/main.service';
-import { Subscription, timer } from 'rxjs';
+import { forkJoin, Subscription, timer } from 'rxjs';
 import { startWith, switchMap, takeWhile } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
@@ -104,9 +106,13 @@ export class UserService {
                 .pipe(
                     startWith(0),
                     takeWhile(() => this.mainService.online),
-                    switchMap(() => this.updateLastOnline(this.mainService.logged))
+                    switchMap(() => forkJoin(
+                        this.updateLastOnline()
+                        , this.getMyRelations()
+                    ))
                 ).subscribe((response) => {
-                    console.log(response.body.lastOnline);
+                    console.log(response[0].body.lastOnline);
+                    this.mainService.myRelations = response[1].body;
                 }, (error) => {
                     console.log(error);
                     // Should go to login
@@ -117,7 +123,18 @@ export class UserService {
         }
     }
 
-    updateLastOnline(user: User) {
-        return this.http.post<User>(this.userUrl + 'update-last-online', user, { observe: 'response' });
+    updateLastOnline() {
+        return this.http.post<User>(this.userUrl + 'update-last-online', this.mainService.logged, { observe: 'response' });
+    }
+
+    getMyRelations() {
+        return this.http.post<MyRelations>(this.userUrl + 'my-relations', this.mainService.logged, { observe: 'response' });
+    }
+
+    searchUsers(params: UserSearchModel) {
+        if (!params) {
+            params = new UserSearchModel();
+        }
+        return this.http.get<MyRelations>(this.userUrl + 'search' + params.getQueryParams(), { observe: 'response' });
     }
 }

@@ -40,7 +40,8 @@ export class BaseComponent {
     }
 
     t(str: string, ...params: string[]): string {
-        let transl: string = this.languageService.TRANSL ? this.languageService.TRANSL.get(str)[this.lang] : '???';
+        let transl: string = this.languageService.TRANSL && this.languageService.TRANSL.get(str)
+            ? this.languageService.TRANSL.get(str)[this.lang] : '???';
         if (params && params.length) {
             for (let i = 0; i < params.length; i++) {
                 transl = transl.replace('{' + i + '}', params[i]);
