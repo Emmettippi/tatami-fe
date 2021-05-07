@@ -111,7 +111,7 @@ export class UserService {
                         , this.getMyRelations()
                     ))
                 ).subscribe((response) => {
-                    console.log(response[0].body.lastOnline);
+                    // console.log(response[0].body.lastOnline);
                     this.mainService.myRelations = response[1].body;
                 }, (error) => {
                     console.log(error);

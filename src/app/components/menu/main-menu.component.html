@@ -1,0 +1,16 @@
+<div class="background">
+</div>
+<tatami-loader *ngIf="loading"></tatami-loader>
+<div *ngIf="isRightOpen" class="black-left">
+</div>
+<router-outlet name="left"></router-outlet>
+<div class="right-outlet">
+    <button class="btn right-btn"
+        [ngClass]="notOpenedRightPanelOnce ? 'no-animation' : isRightOpen ? 'right-btn-opened' : 'right-btn-closed'"
+        (click)="openCloseRightPanel()">
+        {{isRightOpen ? openedStr : closedStr}} </button>
+    <div class="right-div"
+        [ngClass]="notOpenedRightPanelOnce ? 'no-animation' : isRightOpen ? 'right-div-opened' : 'right-div-closed'">
+        <router-outlet name="rigth"></router-outlet>
+    </div>
+</div>

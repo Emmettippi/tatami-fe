@@ -30,6 +30,13 @@ export class BaseComponent {
         this.mainService.language = value;
     }
 
+    get isRightOpen(): boolean {
+        return this.mainService.isRightPanelOpened;
+    }
+    set isRightOpen(value: boolean) {
+        this.mainService.isRightPanelOpened = value;
+    }
+
     constructor(
         protected router: Router,
         protected route: ActivatedRoute,
@@ -48,5 +55,22 @@ export class BaseComponent {
             }
         }
         return transl;
+    }
+
+    navigateTo(commands: string | { [outlet: string]: string }) {
+        if (typeof commands === 'string') {
+            this.router.navigate([commands]);
+        } else {
+            this.router.navigate(
+                [
+                    {
+                        outlets: commands
+                    }
+                ]
+                , {
+                    relativeTo: this.route
+                    , skipLocationChange: true
+                });
+        }
     }
 }

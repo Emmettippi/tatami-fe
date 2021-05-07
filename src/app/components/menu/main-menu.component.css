@@ -1,0 +1,90 @@
+.left-outlet {
+    width: 100%;
+}
+
+.left-outlet-reduced {
+    width: 66%;
+}
+
+.right-btn {
+    height: 72px;
+    width: 24px;
+    vertical-align: middle;
+    width: 24px;
+    box-shadow: none;
+    background-color: #0074d9;
+    font-weight: 700;
+    padding: 0px;
+    margin: 0px;
+    position: fixed;
+    top: 10px;
+    z-index: 1000;
+}
+
+.no-animation {
+    right: 0px;
+}
+
+.right-btn-opened {
+    animation: open-btn;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+    right: 60%;
+}
+
+.right-btn-closed {
+    animation: close-btn;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+    right: 0px;
+}
+
+@keyframes open-btn {
+    0% {
+        right: 0%;
+    }
+    100% {
+        right: 60%;
+    }
+}
+
+@keyframes close-btn {
+    0% {
+        right: 60%;
+    }
+    100% {
+        right: 0%;
+    }
+}
+
+.right-div {
+
+}
+
+.right-div-opened {
+
+}
+
+.right-div-closed {
+
+}
+
+.black-left {
+    position: fixed;
+    top: 0;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+
+    opacity: 0.4;
+    background-color: #232323;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    z-index: 500;
+}

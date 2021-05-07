@@ -1,0 +1,17 @@
+<div class="main-menu">
+    <div class="btn-div anim-fade-in">
+        <button class="btn btn-success menu-btn">{{t('lobby.join')}}</button>
+    </div>
+    <div class="btn-div anim-fade-in delay-1">
+        <button class="btn btn-success menu-btn">{{t('lobby.create')}}</button>
+    </div>
+    <div class="btn-div anim-fade-in delay-2">
+        <button class="btn btn-primary menu-btn">{{t('replay')}}</button>
+    </div>
+    <div class="btn-div anim-fade-in delay-3">
+        <button class="btn btn-secondary menu-btn" (click)="logout()">{{t('logout')}}</button>
+    </div>
+    <div class="btn-div anim-fade-in delay-4">
+        <button class="btn btn-danger menu-btn" (click)="quit()">{{t('quit')}}</button>
+    </div>
+</div>

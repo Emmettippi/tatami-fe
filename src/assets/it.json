@@ -21,5 +21,10 @@
     "error.400": "Errore nella richiesta.",
     "error.500": "Errore nell'elaborazione della richiesta.",
     "creation.success": "L'utenza è stata creata con successo.",
-    "creation.error": "Impossibile creare l'utenza: username o mail già utilizzati."
+    "creation.error": "Impossibile creare l'utenza: username o mail già utilizzati.",
+    "lobby.join": "Unisciti ad una Lobby",
+    "lobby.create": "Crea una nuova Lobby",
+    "replay": "Carica un Replay",
+    "logout": "Logout",
+    "quit": "Esci"
 }

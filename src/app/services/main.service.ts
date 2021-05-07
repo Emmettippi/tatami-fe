@@ -5,10 +5,6 @@ import { MyRelations } from '../entities/user-relation/my-relations.model';
 @Injectable({ providedIn: 'root' })
 export class MainService {
 
-    get MAIN_URL(): string {
-        return 'http://' + this.ipAddress + ':8080/api/';
-    }
-
     public online: boolean;
     public logged: User;
     private _myRelations: MyRelations;
@@ -16,6 +12,11 @@ export class MainService {
     public readonly IP_REGEX = new RegExp('^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$');
     public language: string;
     public loading = 0;
+    public isRightPanelOpened = false;
+
+    get MAIN_URL(): string {
+        return 'http://' + this.ipAddress + ':8080/api/';
+    }
 
     public get myRelations() {
         return this._myRelations;
@@ -46,4 +47,7 @@ export class MainService {
             this._myRelations = value;
         }
     }
+
+    constructor(
+    ) { }
 }

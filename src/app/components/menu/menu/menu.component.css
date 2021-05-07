@@ -1,0 +1,21 @@
+.main-menu {
+    font-weight: 700;
+    font-family: 'Calibri';
+    font-size: 28px;
+    display: block;
+    top: 15%;
+    right: 30%;
+    left: 30%;
+    position: absolute;
+    padding-bottom: 20px;
+}
+
+.btn-div {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.menu-btn {
+    width: 100%;
+    font-size: 28px;
+}

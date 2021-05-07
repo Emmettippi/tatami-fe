@@ -79,8 +79,9 @@ export class LoginComponent extends BaseComponent implements OnInit {
                     this.mainService.loading--;
                     this.mainService.online = true;
                     this.mainService.logged = response.body;
-                    this.errorMessages = ['LoginSuccess'];
+                    this.mainService.isRightPanelOpened = false;
                     this.userService.startStopUserUpdate(true);
+                    this.navigateTo('main-menu');
                 }, (error: HttpErrorResponse) => {
                     this.mainService.loading--;
                     this.mainService.online = false;
@@ -100,7 +101,9 @@ export class LoginComponent extends BaseComponent implements OnInit {
     loginOffline() {
         this.mainService.online = false;
         this.mainService.logged = null;
+        this.mainService.isRightPanelOpened = false;
         this.userService.startStopUserUpdate(false);
+        this.navigateTo('main-menu');
     }
 
     registration(isRegistration: boolean) {

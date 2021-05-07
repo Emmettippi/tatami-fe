@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
+import { MainMenuComponent } from './components/menu/main-menu.component';
+import { SOCIAL_ROUTES, MENU_ROUTES } from './components/menu/menu.route';
 
 @NgModule({
     imports: [
@@ -10,6 +12,14 @@ import { LoginComponent } from './components/login/login.component';
                 component: LoginComponent
             }
         ])
+        , RouterModule.forChild([{
+            path: 'main-menu',
+            component: MainMenuComponent,
+            children: [
+                ...MENU_ROUTES
+                // , ...SOCIAL_ROUTES
+            ]
+        }])
     ],
     exports: [RouterModule]
 })
