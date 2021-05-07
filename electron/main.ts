@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
@@ -7,7 +7,10 @@ let win: BrowserWindow;
 function createWindow() {
     win = new BrowserWindow({
         width: 1280,
-        height: 720
+        height: 720,
+        webPreferences: {
+            nodeIntegration: true
+        }
     });
 
     win.loadURL(
@@ -21,9 +24,13 @@ function createWindow() {
     // win.webContents.openDevTools();
 
     win.on('closed', () => {
-        win = null
+        win = null;
     });
 }
+
+ipcMain.on('close-me', (evt, arg) => {
+    app.quit();
+})
 
 app.on('ready', createWindow);
 

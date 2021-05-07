@@ -7,7 +7,10 @@ var win;
 function createWindow() {
     win = new electron_1.BrowserWindow({
         width: 1280,
-        height: 720
+        height: 720,
+        webPreferences: {
+            nodeIntegration: true
+        }
     });
     win.loadURL(url.format({
         pathname: path.join(__dirname, "/../../dist/tatami-fe/index.html"),
@@ -19,6 +22,9 @@ function createWindow() {
         win = null;
     });
 }
+electron_1.ipcMain.on('close-me', function (evt, arg) {
+    electron_1.app.quit();
+});
 electron_1.app.on('ready', createWindow);
 electron_1.app.on('activate', function () {
     if (win === null) {
