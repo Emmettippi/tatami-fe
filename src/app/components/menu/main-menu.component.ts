@@ -34,7 +34,7 @@ export class MainMenuComponent extends BaseComponent implements OnInit {
     ngOnInit(): void {
         this.navigateTo({
             left: 'menu'
-            // , right: null
+            , right: 'social'
         });
     }
 

@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxElectronModule } from 'ngx-electron';
 import { MenuComponent } from './menu/menu.component';
+import { SocialComponent } from './social/social.component';
 
 @NgModule({
     imports: [
@@ -14,6 +15,7 @@ import { MenuComponent } from './menu/menu.component';
     ],
     declarations: [
         MenuComponent
+        , SocialComponent
     ]
 })
 export class MainMenuModule { }

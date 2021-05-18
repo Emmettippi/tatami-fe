@@ -17,7 +17,7 @@ import { SOCIAL_ROUTES, MENU_ROUTES } from './components/menu/menu.route';
             component: MainMenuComponent,
             children: [
                 ...MENU_ROUTES
-                // , ...SOCIAL_ROUTES
+                , ...SOCIAL_ROUTES
             ]
         }])
     ],
