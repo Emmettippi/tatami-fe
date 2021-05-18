@@ -12,13 +12,14 @@ import { AppComponent } from './app.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { BaseComponent } from './components/base/base.component';
 import { LoginComponent } from './components/login/login.component';
+import { InputExampleComponent } from './components/input-example/input-example';
+import { MainMenuComponent } from './components/menu/main-menu.component';
 
 import { MainService, LanguageService } from './services';
 import { UserService } from './entities/user/user.service';
 import { UserRelationService } from './entities/user-relation/user-relation.service';
 
 import { MainMenuModule } from './components/menu/menu.module';
-import { MainMenuComponent } from './components/menu/main-menu.component';
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import { MainMenuComponent } from './components/menu/main-menu.component';
 
         , LoginComponent
         , MainMenuComponent
+        , InputExampleComponent
     ],
     imports: [
         BrowserModule

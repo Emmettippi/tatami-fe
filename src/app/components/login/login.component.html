@@ -8,19 +8,20 @@
             <div class="anim-fade-in delay-1">
                 <div class="left-login"> {{t('ipAddress')}}</div>
                 <div class="right-login">
-                    <input class="login-input" type="text" [(ngModel)]="ipAddress" />
+                    <tatami-input [myInputClasses]="'login-input'" [(value)]="ipAddress"></tatami-input>
                 </div>
             </div>
             <div class="anim-fade-in delay-2">
                 <div class="left-login"> {{t('username')}}</div>
                 <div class="right-login">
-                    <input class="login-input" type="text" [(ngModel)]="user.username" />
+                    <tatami-input [myInputClasses]="'login-input'" [(value)]="user.username"></tatami-input>
                 </div>
             </div>
             <div class="anim-fade-in delay-3">
                 <div class="left-login"> {{t('password')}}</div>
                 <div class="right-login">
-                    <input class="login-input" type="password" [(ngModel)]="user.password" />
+                    <tatami-input [myInputClasses]="'login-input'" [type]="'password'" [(value)]="user.password">
+                    </tatami-input>
                 </div>
             </div>
         </div>
