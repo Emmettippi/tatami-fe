@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Router, RouterModule } from '@angular/router';
 import { NgxElectronModule } from 'ngx-electron';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +13,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { BaseComponent } from './components/base/base.component';
 import { LoginComponent } from './components/login/login.component';
 
-import { MainService, LanguageService } from './services';
+import { MainService, LanguageService, HttpErrorInterceptor } from './services';
 import { UserService } from './entities/user/user.service';
 import { UserRelationService } from './entities/user-relation/user-relation.service';
 
@@ -43,6 +43,14 @@ import { MainMenuComponent } from './components/menu/main-menu.component';
         , LanguageService
         , UserService
         , UserRelationService
+        , {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpErrorInterceptor,
+            multi: true,
+            deps: [
+                UserService, Router
+            ]
+        }
     ],
     exports: [
         RouterModule

@@ -5,6 +5,7 @@ export class User {
     newPassword: string;
     nickname: string;
     email: string;
+    token: string;
     userStatus: string;
     lastOnline: any;
     profileImage: any;
@@ -16,6 +17,7 @@ export class User {
         newPassword?: string,
         nickname?: string,
         email?: string,
+        token?: string,
         userStatus?: string,
         lastOnline?: any,
         profileImage?: any
@@ -26,6 +28,7 @@ export class User {
         this.newPassword = newPassword;
         this.nickname = nickname;
         this.email = email;
+        this.token = token;
         this.userStatus = userStatus;
         this.lastOnline = lastOnline;
         this.profileImage = profileImage;

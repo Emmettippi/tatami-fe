@@ -39,9 +39,7 @@ export class MenuComponent extends BaseComponent implements OnInit {
     }
 
     logout() {
-        this.mainService.online = false;
-        this.mainService.logged = null;
-        this.userService.startStopUserUpdate(false);
+        this.userService.logout();
         this.navigateTo('login');
     }
 

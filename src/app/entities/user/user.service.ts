@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './user.model';
 import { MainService } from '../../services/main.service';
 import { forkJoin, Subscription, timer } from 'rxjs';
-import { startWith, switchMap, takeWhile } from 'rxjs/operators';
+import { startWith, switchMap, takeWhile, map } from 'rxjs/operators';
+import { TATAMI_LOCAL_TOKEN } from './../../core/constants';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -89,7 +90,24 @@ export class UserService {
 
     login(username: string, password: string) {
         const loginDto = { username, password };
-        return this.http.post<User>(this.userUrl + 'login', loginDto, { observe: 'response' });
+        return this.http.post<User>(this.userUrl + 'login', loginDto, { observe: 'response' })
+            .pipe(
+                map((httpResponse) => {
+                    if (httpResponse && httpResponse.body && httpResponse.body.token) {
+                        localStorage.setItem(TATAMI_LOCAL_TOKEN, httpResponse.body.token);
+                    } else {
+                        localStorage.removeItem(TATAMI_LOCAL_TOKEN);
+                    }
+                    return httpResponse;
+                })
+            );
+    }
+
+    logout() {
+        this.mainService.online = false;
+        this.mainService.logged = null;
+        localStorage.removeItem(TATAMI_LOCAL_TOKEN);
+        this.startStopUserUpdate(false);
     }
 
     createUser(user: User) {
