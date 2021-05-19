@@ -130,7 +130,7 @@ export class UserService {
                     ))
                 ).subscribe((response) => {
                     // console.log(response[0].body.lastOnline);
-                    this.mainService.myRelations = response[1].body;
+                    // this.mainService.myRelations = response[1].body;
                 }, (error) => {
                     console.log(error);
                     // Should go to login
@@ -142,11 +142,17 @@ export class UserService {
     }
 
     updateLastOnline() {
-        return this.http.post<User>(this.userUrl + 'update-last-online', this.mainService.logged, { observe: 'response' });
+        return this.http.post<User>(this.userUrl + 'update-last-online/' + this.mainService.logged.id, null, { observe: 'response' });
     }
 
     getMyRelations() {
-        return this.http.post<MyRelations>(this.userUrl + 'my-relations', this.mainService.logged, { observe: 'response' });
+        return this.http.get<MyRelations>(this.userUrl + 'my-relations/' + this.mainService.logged.id, { observe: 'response' })
+            .pipe(
+                map((response) => {
+                    this.mainService.myRelations = response && response.body ? response.body : null;
+                    return response;
+                })
+            );
     }
 
     searchUsers(params: UserSearchModel) {
