@@ -8,6 +8,8 @@
 .social-list-div {
     padding: 0px;
     margin: 0px;
+    overflow-y: auto;
+    max-height: 100vh;
 }
 
 .social-list-accordion {
@@ -32,4 +34,29 @@
     padding: 0px;
     margin: 0px;
     background-color: #7fdbff;
+    align-items: center;
+}
+
+.social-item-div {
+    border-bottom: 1px solid blue;
+}
+
+.span-nick {
+    font-family: 'Calibri';
+    font-weight: 700;
+    font-size: 14px;
+    font-style: italic;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    margin-bottom: -5px;
+    padding: 0px 5px;
+    width: calc(100% - 165px);
+}
+
+.btn-social {
+    height: 28px;
+    width: 80px;
+    font-size: 14px;
+    padding: 0px;
 }

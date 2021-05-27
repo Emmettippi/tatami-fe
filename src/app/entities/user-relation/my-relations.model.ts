@@ -30,9 +30,9 @@ export class MyRelations {
         , pendingFriends?: Array<User>
         , blocked?: Array<User>
     ) {
-        this.friends = friends;
-        this.askingFriends = askingFriends;
-        this.pendingFriends = pendingFriends;
-        this.blocked = blocked;
+        this.friends = friends || [];
+        this.askingFriends = askingFriends || [];
+        this.pendingFriends = pendingFriends || [];
+        this.blocked = blocked || [];
     }
 }

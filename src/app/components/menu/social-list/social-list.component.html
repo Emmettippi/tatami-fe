@@ -10,3 +10,14 @@
         <span class="social-list-header">{{t('social.' + key)}}</span>
     </button>
 </div>
+<div *ngIf="relationObj[key].open" class="social-list-body">
+    <div *ngFor="let relation of myRelations[key]" class="social-item-div">
+        <span class="span-nick" [title]="relation.username">{{relation.nickname}}</span>
+        <button *ngIf="key === 'friends'" class="btn btn-primary btn-social">
+            {{t('social.remove')}}
+        </button>
+        <button *ngIf="key === 'friends'" class="btn btn-danger btn-social">
+            {{t('social.block')}}
+        </button>
+    </div>
+</div>

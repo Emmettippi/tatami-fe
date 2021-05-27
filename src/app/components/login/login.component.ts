@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User, UserService } from '../../entities/user';
 import { LanguageService, MainService } from '../../services';
 import { BaseComponent } from '../base/base.component';
+import { MyRelations } from 'src/app/entities/user-relation';
 
 @Component({
     selector: 'tatami-login',
@@ -103,6 +104,56 @@ export class LoginComponent extends BaseComponent implements OnInit {
         this.mainService.logged = null;
         this.mainService.isRightPanelOpened = false;
         this.userService.startStopUserUpdate(false);
+        this.mainService.myRelations = new MyRelations([
+            new User(1, 'a', null, null, 'A', null, null, 'ONLINE')
+            , new User(2, 'b', null, null, 'B', null, null, 'ONLINE')
+            , new User(3, 'c', null, null, 'C', null, null, 'INLOBBY')
+            , new User(4, 'd', null, null, 'D', null, null, 'INLOBBY')
+            , new User(5, 'e', null, null, 'E', null, null, 'INGAME')
+            , new User(6, 'f', null, null, 'F', null, null, 'INGAME')
+            , new User(7, 'g', null, null, 'G', null, null, 'NOT_RESPONDING')
+            , new User(8, 'h', null, null, 'H', null, null, 'NOT_RESPONDING')
+            , new User(9, 'i', null, null, 'I', null, null, 'ONLINE')
+            , new User(10, 'j', null, null, 'J', null, null, 'ONLINE')
+            , new User(11, 'k', null, null, 'K', null, null, 'OFFLINE')
+            , new User(11, 'l', null, null, 'L', null, null, 'OFFLINE')
+        ], [
+            new User(1, 'a', null, null, 'A', null, null, 'ONLINE')
+            , new User(2, 'b', null, null, 'B', null, null, 'ONLINE')
+            , new User(3, 'c', null, null, 'C', null, null, 'INLOBBY')
+            , new User(4, 'd', null, null, 'D', null, null, 'INLOBBY')
+            , new User(5, 'e', null, null, 'E', null, null, 'INGAME')
+            , new User(6, 'f', null, null, 'F', null, null, 'INGAME')
+            , new User(7, 'g', null, null, 'G', null, null, 'NOT_RESPONDING')
+            , new User(8, 'h', null, null, 'H', null, null, 'NOT_RESPONDING')
+            , new User(9, 'i', null, null, 'I', null, null, 'ONLINE')
+            , new User(10, 'j', null, null, 'J', null, null, 'ONLINE')
+            , new User(11, 'k', null, null, 'K', null, null, 'OFFLINE')
+            , new User(11, 'l', null, null, 'L', null, null, 'OFFLINE')], [
+            new User(1, 'a', null, null, 'A', null, null, 'ONLINE')
+            , new User(2, 'b', null, null, 'B', null, null, 'ONLINE')
+            , new User(3, 'c', null, null, 'C', null, null, 'INLOBBY')
+            , new User(4, 'd', null, null, 'D', null, null, 'INLOBBY')
+            , new User(5, 'e', null, null, 'E', null, null, 'INGAME')
+            , new User(6, 'f', null, null, 'F', null, null, 'INGAME')
+            , new User(7, 'g', null, null, 'G', null, null, 'NOT_RESPONDING')
+            , new User(8, 'h', null, null, 'H', null, null, 'NOT_RESPONDING')
+            , new User(9, 'i', null, null, 'I', null, null, 'ONLINE')
+            , new User(10, 'j', null, null, 'J', null, null, 'ONLINE')
+            , new User(11, 'k', null, null, 'K', null, null, 'OFFLINE')
+            , new User(11, 'l', null, null, 'L', null, null, 'OFFLINE')], [
+            new User(1, 'a', null, null, 'A', null, null, 'ONLINE')
+            , new User(2, 'b', null, null, 'B', null, null, 'ONLINE')
+            , new User(3, 'c', null, null, 'C', null, null, 'INLOBBY')
+            , new User(4, 'd', null, null, 'D', null, null, 'INLOBBY')
+            , new User(5, 'e', null, null, 'E', null, null, 'INGAME')
+            , new User(6, 'f', null, null, 'F', null, null, 'INGAME')
+            , new User(7, 'g', null, null, 'G', null, null, 'NOT_RESPONDING')
+            , new User(8, 'h', null, null, 'H', null, null, 'NOT_RESPONDING')
+            , new User(9, 'i', null, null, 'I', null, null, 'ONLINE')
+            , new User(10, 'j', null, null, 'J', null, null, 'ONLINE')
+            , new User(11, 'k', null, null, 'K', null, null, 'OFFLINE')
+            , new User(11, 'l', null, null, 'L', null, null, 'OFFLINE')]);
         this.navigateTo('main-menu');
     }
 

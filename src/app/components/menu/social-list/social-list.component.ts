@@ -19,6 +19,10 @@ export class SocialSubComponent extends BaseComponent implements OnInit {
         return this.mainService.relationObj;
     }
 
+    get myRelations() {
+        return this.mainService.myRelations;
+    }
+
     constructor(
         protected router: Router,
         protected route: ActivatedRoute,
