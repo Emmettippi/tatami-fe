@@ -2,6 +2,11 @@ export enum KEY_CODE {
     ENTER = 13
 }
 
+export enum RELATION_SORT {
+    DEFAULT = 'nickname'
+    , USERNAME = 'username'
+}
+
 export const HTTP_CODE = {
     OK: 200
     , BAD_REQUEST: 400

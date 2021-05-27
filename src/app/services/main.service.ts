@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../entities/user/user.model';
 import { MyRelations } from '../entities/user-relation/my-relations.model';
+import { RelationObj } from './../core/relation-obj.model';
 
 @Injectable({ providedIn: 'root' })
 export class MainService {
@@ -8,6 +9,7 @@ export class MainService {
     public online: boolean;
     public logged: User;
     private _myRelations: MyRelations;
+    public relationObj = new RelationObj(MyRelations.keys);
     public ipAddress: string;
     public readonly IP_REGEX = new RegExp('^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$');
     public language: string;
@@ -46,8 +48,22 @@ export class MainService {
         } else {
             this._myRelations = value;
         }
+
+        if (this._myRelations) {
+            for (const key of MyRelations.keys) {
+                this.sortMyRelations(key);
+            }
+        }
     }
 
     constructor(
     ) { }
+
+    sortMyRelations(key: keyof MyRelations) {
+        this._myRelations[key] = this._myRelations[key].sort((a, b) => {
+            return a[this.relationObj[key].sort].toUpperCase().localeCompare(
+                b[this.relationObj[key].sort].toUpperCase()
+            ) * (this.relationObj[key].asc ? 1 : -1);
+        });
+    }
 }

@@ -1,4 +1,9 @@
 .social-div {
-    /* width: 60%;
-    max-width: 60%; */
+    padding: 0px;
+    margin: 0px;
+}
+
+.social-col {
+    padding: 8px;
+    margin: 0px;
 }

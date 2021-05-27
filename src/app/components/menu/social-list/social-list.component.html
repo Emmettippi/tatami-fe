@@ -1,0 +1,12 @@
+<div class="row social-list-accordion">
+    <button class="btn btn-{{color}} expansion-btn" [title]="getExpandCollapseTitle(relationObj[key].open)"
+        (click)="onBtnOpenClick()">
+        <ng-container *ngIf="relationObj[key].open">
+            <tatami-chevron-up></tatami-chevron-up>
+        </ng-container>
+        <ng-container *ngIf="!relationObj[key].open">
+            <tatami-chevron-down></tatami-chevron-down>
+        </ng-container>
+        <span class="social-list-header">{{t('social.' + key)}}</span>
+    </button>
+</div>

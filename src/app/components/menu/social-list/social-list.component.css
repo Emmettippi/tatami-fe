@@ -1,0 +1,35 @@
+.expansion-btn {
+    /* height: 48px;
+    width: 48px; */
+    text-align: justify;
+    border-radius: 10px;
+}
+
+.social-list-div {
+    padding: 0px;
+    margin: 0px;
+}
+
+.social-list-accordion {
+    padding: 0px;
+    margin: 0px;
+    /* background-color: #0074d9; */
+    border-radius: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.social-list-header {
+    font-weight: 700;
+    font-family: 'Calibri';
+    font-size: 24px;
+    font-style: italic;
+    margin-left: 10px;
+    color: #ffffff;
+}
+
+.social-list-body {
+    padding: 0px;
+    margin: 0px;
+    background-color: #7fdbff;
+}
