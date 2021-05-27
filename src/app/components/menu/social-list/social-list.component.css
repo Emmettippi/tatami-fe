@@ -51,7 +51,18 @@
     overflow-x: hidden;
     margin-bottom: -5px;
     padding: 0px 5px;
+}
+
+.span-nick-1 {
+    width: calc(100% - 85px);
+}
+
+.span-nick-2 {
     width: calc(100% - 165px);
+}
+
+.span-nick-3 {
+    width: calc(100% - 245px);
 }
 
 .btn-social {

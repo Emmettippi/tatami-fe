@@ -105,7 +105,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
         this.mainService.isRightPanelOpened = false;
         this.userService.startStopUserUpdate(false);
         this.mainService.myRelations = new MyRelations([
-            new User(1, 'a', null, null, 'A', null, null, 'ONLINE')
+            new User(1, 'a', null, null, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', null, null, 'ONLINE')
             , new User(2, 'b', null, null, 'B', null, null, 'ONLINE')
             , new User(3, 'c', null, null, 'C', null, null, 'INLOBBY')
             , new User(4, 'd', null, null, 'D', null, null, 'INLOBBY')
@@ -118,7 +118,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
             , new User(11, 'k', null, null, 'K', null, null, 'OFFLINE')
             , new User(11, 'l', null, null, 'L', null, null, 'OFFLINE')
         ], [
-            new User(1, 'a', null, null, 'A', null, null, 'ONLINE')
+            new User(1, 'a', null, null, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', null, null, 'ONLINE')
             , new User(2, 'b', null, null, 'B', null, null, 'ONLINE')
             , new User(3, 'c', null, null, 'C', null, null, 'INLOBBY')
             , new User(4, 'd', null, null, 'D', null, null, 'INLOBBY')
@@ -130,7 +130,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
             , new User(10, 'j', null, null, 'J', null, null, 'ONLINE')
             , new User(11, 'k', null, null, 'K', null, null, 'OFFLINE')
             , new User(11, 'l', null, null, 'L', null, null, 'OFFLINE')], [
-            new User(1, 'a', null, null, 'A', null, null, 'ONLINE')
+            new User(1, 'a', null, null, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', null, null, 'ONLINE')
             , new User(2, 'b', null, null, 'B', null, null, 'ONLINE')
             , new User(3, 'c', null, null, 'C', null, null, 'INLOBBY')
             , new User(4, 'd', null, null, 'D', null, null, 'INLOBBY')
@@ -142,7 +142,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
             , new User(10, 'j', null, null, 'J', null, null, 'ONLINE')
             , new User(11, 'k', null, null, 'K', null, null, 'OFFLINE')
             , new User(11, 'l', null, null, 'L', null, null, 'OFFLINE')], [
-            new User(1, 'a', null, null, 'A', null, null, 'ONLINE')
+            new User(1, 'a', null, null, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', null, null, 'ONLINE')
             , new User(2, 'b', null, null, 'B', null, null, 'ONLINE')
             , new User(3, 'c', null, null, 'C', null, null, 'INLOBBY')
             , new User(4, 'd', null, null, 'D', null, null, 'INLOBBY')

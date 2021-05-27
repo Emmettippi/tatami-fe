@@ -35,11 +35,22 @@ export class SocialSubComponent extends BaseComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    onBtnOpenClick() {
-        this.relationObj[this.key].open = !this.relationObj[this.key].open;
-    }
-
     getExpandCollapseTitle(isOpened: boolean): string {
         return isOpened ? this.t('collapse') : this.t('expand');
+    }
+
+    getSpanNickClass(): string {
+        switch (this.key) {
+            case 'friends':
+                return 'span-nick-2';
+            case 'pendingFriends':
+                return 'span-nick-3';
+            default:
+                return 'span-nick-1';
+        }
+    }
+
+    onBtnOpenClick() {
+        this.relationObj[this.key].open = !this.relationObj[this.key].open;
     }
 }

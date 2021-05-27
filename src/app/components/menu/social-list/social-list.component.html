@@ -12,12 +12,27 @@
 </div>
 <div *ngIf="relationObj[key].open" class="social-list-body">
     <div *ngFor="let relation of myRelations[key]" class="social-item-div">
-        <span class="span-nick" [title]="relation.username">{{relation.nickname}}</span>
+        <span class="span-nick" [ngClass]="getSpanNickClass()" [title]="relation.username">{{relation.nickname}}</span>
         <button *ngIf="key === 'friends'" class="btn btn-primary btn-social">
             {{t('social.remove')}}
         </button>
         <button *ngIf="key === 'friends'" class="btn btn-danger btn-social">
             {{t('social.block')}}
+        </button>
+        <button *ngIf="key === 'askingFriends'" class="btn btn-warning btn-social">
+            {{t('social.cancel')}}
+        </button>
+        <button *ngIf="key === 'pendingFriends'" class="btn btn-success btn-social">
+            {{t('social.accept')}}
+        </button>
+        <button *ngIf="key === 'pendingFriends'" class="btn btn-warning btn-social">
+            {{t('social.refuse')}}
+        </button>
+        <button *ngIf="key === 'pendingFriends'" class="btn btn-danger btn-social">
+            {{t('social.block')}}
+        </button>
+        <button *ngIf="key === 'blocked'" class="btn btn-danger btn-social">
+            {{t('social.unlock')}}
         </button>
     </div>
 </div>
