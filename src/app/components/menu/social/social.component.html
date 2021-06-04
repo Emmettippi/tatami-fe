@@ -22,5 +22,33 @@
                 </div>
             </div>
         </div>
+        <div *ngIf="users && users.length" class="social-search-body">
+            <div *ngFor="let user of users; let i = index" class="social-item-div">
+                <div class="user-status-div" [ngClass]="getOnlineColor(i)" [title]="t(getOnlineTitle(i))"></div>
+                <span class="span-nick" [ngClass]="getSpanNickClass(i)" [title]="user.username">{{user.nickname}}</span>
+                <button *ngIf="getKey(i) === 'nothing'" class="btn btn-success btn-social">
+                    {{t('social.ask')}}
+                </button>
+                <button *ngIf="getKey(i) === 'nothing'" class="btn btn-danger btn-social">
+                    {{t('social.block')}}
+                </button>
+                <button *ngIf="getKey(i) === 'askingFriends'" class="btn btn-warning btn-social">
+                    {{t('social.cancel')}}
+                </button>
+                <button *ngIf="getKey(i) === 'pendingFriends'" class="btn btn-success btn-social">
+                    {{t('social.accept')}}
+                </button>
+                <button *ngIf="getKey(i) === 'pendingFriends'" class="btn btn-warning btn-social">
+                    {{t('social.refuse')}}
+                </button>
+                <button *ngIf="getKey(i) === 'pendingFriends'" class="btn btn-danger btn-social">
+                    {{t('social.block')}}
+                </button>
+                <button *ngIf="getKey(i) === 'blocked'" class="btn btn-danger btn-social">
+                    {{t('social.unlock')}}
+                </button>
+                <span class="span-friends">{{user.commonFriends + t('commonFriends')}}</span>
+            </div>
+        </div>
     </div>
 </div>

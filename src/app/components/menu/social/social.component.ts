@@ -71,4 +71,51 @@ export class SocialComponent extends BaseComponent implements OnInit {
             this.users = [];
         }
     }
+
+    getSpanNickClass(index: number): string {
+        switch (this.getKey(index)) {
+            case 'nothing':
+                return 'span-nick-2';
+            case 'pendingFriends':
+                return 'span-nick-3';
+            default:
+                return 'span-nick-1';
+        }
+    }
+
+    getOnlineTitle(index: number) {
+        let ret = 'offline';
+        switch (this.users[index].userStatus) {
+            case 'ONLINE': ret = 'online'; break;
+            case 'INGAME': ret = 'ingame'; break;
+            case 'INLOBBY': ret = 'inlobby'; break;
+            case 'NOT_RESPONDING': ret = 'notresponding'; break;
+            case 'OFFLINE': ret = 'offline'; break;
+        }
+        return 'user.status.' + ret;
+    }
+
+    getOnlineColor(index: number) {
+        let ret = 'black-status';
+        switch (this.users[index].userStatus) {
+            case 'ONLINE': ret = 'green-status'; break;
+            case 'INGAME': ret = 'red-status'; break;
+            case 'INLOBBY': ret = 'magenta-status'; break;
+            case 'NOT_RESPONDING': ret = 'yellow-status'; break;
+            case 'OFFLINE': ret = 'black-status'; break;
+        }
+        return ret;
+    }
+
+    getKey(index: number): string {
+        for (const key of MyRelations.keys) {
+            if (key) {
+                const u = this.mainService.myRelations[key].find(r => r.id === this.users[index].id);
+                if (u) {
+                    return <string>key;
+                }
+            }
+        }
+        return 'nothing';
+    }
 }

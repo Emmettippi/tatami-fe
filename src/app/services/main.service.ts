@@ -34,11 +34,19 @@ export class MainService {
                         this._myRelations[key].push(...newFriends);
                     }
                     for (let i = 0; i < this._myRelations[key].length; i++) {
-                        const oldAskingFriend = value[key].find(
-                            rel => rel.id === this._myRelations[key][i].id);
+                        let oldAskingFriend: User = null;
+                        let oldAskingIndex: number = null;
+                        for (let j = 0; j < value[key].length; j++) {
+                            if (value[key][j].id === this._myRelations[key][i].id) {
+                                oldAskingFriend = value[key][j];
+                                oldAskingIndex = j;
+                            }
+                        }
                         if (!oldAskingFriend) {
                             this._myRelations[key].splice(i, 1);
                             i--;
+                        } else {
+                            this._myRelations[key][i] = value[key][oldAskingIndex];
                         }
                     }
                 } else {
