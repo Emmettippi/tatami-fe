@@ -41,6 +41,34 @@
     border-bottom: 1px solid blue;
 }
 
+.user-status-div {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.green-status {
+    background-color: #00cc00;
+}
+
+.red-status {
+    background-color: #ff0000;
+}
+
+.magenta-status {
+    background-color: #ff00ff;
+}
+
+.yellow-status {
+    background-color: #ffff00;
+}
+
+.black-status {
+    background-color: #323232;
+}
+
 .span-nick {
     font-family: 'Calibri';
     font-weight: 700;
@@ -54,15 +82,15 @@
 }
 
 .span-nick-1 {
-    width: calc(100% - 85px);
+    width: calc(100% - 95px);
 }
 
 .span-nick-2 {
-    width: calc(100% - 165px);
+    width: calc(100% - 175px);
 }
 
 .span-nick-3 {
-    width: calc(100% - 245px);
+    width: calc(100% - 255px);
 }
 
 .btn-social {

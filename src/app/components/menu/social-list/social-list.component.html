@@ -11,7 +11,8 @@
     </button>
 </div>
 <div *ngIf="relationObj[key].open" class="social-list-body">
-    <div *ngFor="let relation of myRelations[key]" class="social-item-div">
+    <div *ngFor="let relation of myRelations[key]; let i = index" class="social-item-div">
+        <div class="user-status-div" [ngClass]="getOnlineColor(i)" [title]="t(getOnlineTitle(i))"></div>
         <span class="span-nick" [ngClass]="getSpanNickClass()" [title]="relation.username">{{relation.nickname}}</span>
         <button *ngIf="key === 'friends'" class="btn btn-primary btn-social">
             {{t('social.remove')}}

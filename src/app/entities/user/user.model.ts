@@ -34,3 +34,23 @@ export class User {
         this.profileImage = profileImage;
     }
 }
+
+export class UserSearchDto extends User {
+    commonFriends: number;
+
+    constructor(
+        id?: number,
+        username?: string,
+        password?: string,
+        newPassword?: string,
+        nickname?: string,
+        email?: string,
+        token?: string,
+        userStatus?: string,
+        lastOnline?: any,
+        profileImage?: any,
+        commonFriends?: any) {
+        super(id, username, password, newPassword, nickname, email, token, userStatus, lastOnline, profileImage);
+        this.commonFriends = commonFriends;
+    }
+}

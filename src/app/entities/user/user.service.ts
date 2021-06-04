@@ -2,7 +2,7 @@ import { UserSearchModel } from './user-search.model';
 import { MyRelations } from './../user-relation/my-relations.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from './user.model';
+import { User, UserSearchDto } from './user.model';
 import { MainService } from '../../services/main.service';
 import { forkJoin, Subscription, timer } from 'rxjs';
 import { startWith, switchMap, takeWhile, map } from 'rxjs/operators';
@@ -159,6 +159,6 @@ export class UserService {
         if (!params) {
             params = new UserSearchModel();
         }
-        return this.http.get<MyRelations>(this.userUrl + 'search' + params.getQueryParams(), { observe: 'response' });
+        return this.http.get<Array<UserSearchDto>>(this.userUrl + 'search' + params.getQueryParams(), { observe: 'response' });
     }
 }

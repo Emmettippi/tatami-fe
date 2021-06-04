@@ -50,6 +50,30 @@ export class SocialSubComponent extends BaseComponent implements OnInit {
         }
     }
 
+    getOnlineTitle(index: number) {
+        let ret = 'offline';
+        switch (this.myRelations[this.key][index].userStatus) {
+            case 'ONLINE': ret = 'online'; break;
+            case 'INGAME': ret = 'ingame'; break;
+            case 'INLOBBY': ret = 'inlobby'; break;
+            case 'NOT_RESPONDING': ret = 'notresponding'; break;
+            case 'OFFLINE': ret = 'offline'; break;
+        }
+        return 'user.status.' + ret;
+    }
+
+    getOnlineColor(index: number) {
+        let ret = 'black-status';
+        switch (this.myRelations[this.key][index].userStatus) {
+            case 'ONLINE': ret = 'green-status'; break;
+            case 'INGAME': ret = 'red-status'; break;
+            case 'INLOBBY': ret = 'magenta-status'; break;
+            case 'NOT_RESPONDING': ret = 'yellow-status'; break;
+            case 'OFFLINE': ret = 'black-status'; break;
+        }
+        return ret;
+    }
+
     onBtnOpenClick() {
         this.relationObj[this.key].open = !this.relationObj[this.key].open;
     }

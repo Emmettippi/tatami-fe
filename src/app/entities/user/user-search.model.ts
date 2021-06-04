@@ -24,13 +24,17 @@ export class UserSearchModel {
         for (const key in this) {
             if (key) {
                 const property = this[key];
-                if (property || (typeof property === 'number' && property === 0)) {
-                    if (!str) {
-                        str += '?';
-                    } else {
-                        str += '&';
+                if (typeof property === 'number'
+                    || typeof property === 'boolean'
+                    || typeof property === 'string') {
+                    if (property || property === 0) {
+                        if (!str) {
+                            str += '?';
+                        } else {
+                            str += '&';
+                        }
+                        str += key + '=' + property;
                     }
-                    str += key + '=' + property;
                 }
             }
         }
