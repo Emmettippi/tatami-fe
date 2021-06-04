@@ -26,25 +26,32 @@
             <div *ngFor="let user of users; let i = index" class="social-item-div">
                 <div class="user-status-div" [ngClass]="getOnlineColor(i)" [title]="t(getOnlineTitle(i))"></div>
                 <span class="span-nick" [ngClass]="getSpanNickClass(i)" [title]="user.username">{{user.nickname}}</span>
-                <button *ngIf="getKey(i) === 'nothing'" class="btn btn-success btn-social">
+                <button *ngIf="getKey(i) === 'nothing'" class="btn btn-success btn-social"
+                    (click)="handleRelation(user.id, 'ask-friendship')">
                     {{t('social.ask')}}
                 </button>
-                <button *ngIf="getKey(i) === 'nothing'" class="btn btn-danger btn-social">
+                <button *ngIf="getKey(i) === 'nothing'" class="btn btn-danger btn-social"
+                (click)="handleRelation(user.id, 'block-user')">
                     {{t('social.block')}}
                 </button>
-                <button *ngIf="getKey(i) === 'askingFriends'" class="btn btn-warning btn-social">
+                <button *ngIf="getKey(i) === 'askingFriends'" class="btn btn-warning btn-social"
+                (click)="handleRelation(user.id, 'cancel-request')">
                     {{t('social.cancel')}}
                 </button>
-                <button *ngIf="getKey(i) === 'pendingFriends'" class="btn btn-success btn-social">
+                <button *ngIf="getKey(i) === 'pendingFriends'" class="btn btn-success btn-social"
+                (click)="handleRelation(user.id, 'accept-friendship')">
                     {{t('social.accept')}}
                 </button>
-                <button *ngIf="getKey(i) === 'pendingFriends'" class="btn btn-warning btn-social">
+                <button *ngIf="getKey(i) === 'pendingFriends'" class="btn btn-warning btn-social"
+                (click)="handleRelation(user.id, 'refuse-friendship')">
                     {{t('social.refuse')}}
                 </button>
-                <button *ngIf="getKey(i) === 'pendingFriends'" class="btn btn-danger btn-social">
+                <button *ngIf="getKey(i) === 'pendingFriends'" class="btn btn-danger btn-social"
+                (click)="handleRelation(user.id, 'block-user')">
                     {{t('social.block')}}
                 </button>
-                <button *ngIf="getKey(i) === 'blocked'" class="btn btn-danger btn-social">
+                <button *ngIf="getKey(i) === 'blocked'" class="btn btn-danger btn-social"
+                (click)="handleRelation(user.id, 'unlock-user')">
                     {{t('social.unlock')}}
                 </button>
                 <span class="span-friends">{{user.commonFriends + t('commonFriends')}}</span>

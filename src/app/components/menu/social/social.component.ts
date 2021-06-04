@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { BaseComponent } from './../../base/base.component';
 import { MainService, LanguageService } from './../../../services';
 import { UserSearchDto, UserService, UserSearchModel } from '../../../entities/user';
-import { MyRelations } from './../../../entities/user-relation';
+import { MyRelations, UserRelationService } from './../../../entities/user-relation';
 
 @Component({
     selector: 'tatami-social',
@@ -23,7 +25,8 @@ export class SocialComponent extends BaseComponent implements OnInit {
         protected route: ActivatedRoute,
         protected mainService: MainService,
         protected userService: UserService,
-        protected languageService: LanguageService) {
+        protected languageService: LanguageService,
+        private relationService: UserRelationService) {
         super(router, route, mainService, userService, languageService);
     }
 
@@ -117,5 +120,39 @@ export class SocialComponent extends BaseComponent implements OnInit {
             }
         }
         return 'nothing';
+    }
+
+    handleRelation(entityId: number, relation: string) {
+        let obs: Observable<HttpResponse<MyRelations>> = null;
+        switch (relation) {
+            case 'ask-friendship':
+                obs = this.relationService.askFriendship(entityId);
+                break;
+            case 'remove-friendship':
+                obs = this.relationService.removeFriendship(entityId);
+                break;
+            case 'accept-friendship':
+                obs = this.relationService.acceptFriendship(entityId);
+                break;
+            case 'cancel-request':
+                obs = this.relationService.cancelFriendship(entityId);
+                break;
+            case 'refuse-friendship':
+                obs = this.relationService.refuseFriendship(entityId);
+                break;
+            case 'block-user':
+                obs = this.relationService.blockUser(entityId);
+                break;
+            case 'unlock-user':
+                obs = this.relationService.unlockUser(entityId);
+                break;
+        }
+        if (obs) {
+            obs.subscribe(res => {
+                console.log(res);
+            }, error => {
+                console.log(error);
+            });
+        }
     }
 }
