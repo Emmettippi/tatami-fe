@@ -6,6 +6,21 @@
         <tatami-social-list [key]="MY_REL_KEYS[3]" [color]="'danger'"></tatami-social-list>
     </div>
     <div class="social-col col col-6">
-        <p>Panel 2 works</p>
+        <div class="blue-background">
+            <div class="">
+                <div class="upper-label"> {{t('social.nickname')}}</div>
+                <div class="down-search">
+                    <input class="search-input" type="text" [ngModel]="filter.nickname"
+                        (ngModelChange)="onFilterChange($event, 'nickname')" />
+                </div>
+            </div>
+            <div class="">
+                <div class="upper-label"> {{t('social.username')}}</div>
+                <div class="down-search">
+                    <input class="search-input" type="text" [ngModel]="filter.username"
+                        (ngModelChange)="onFilterChange($event, 'username')" />
+                </div>
+            </div>
+        </div>
     </div>
 </div>
