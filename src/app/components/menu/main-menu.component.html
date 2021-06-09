@@ -4,7 +4,7 @@
 <div *ngIf="isRightOpen" class="black-left">
 </div>
 <router-outlet name="left"></router-outlet>
-<div class="right-outlet">
+<div *ngIf="online" class="right-outlet">
     <button class="btn right-btn"
         [ngClass]="notOpenedRightPanelOnce ? 'no-animation' : isRightOpen ? 'right-btn-opened' : 'right-btn-closed'"
         (click)="openCloseRightPanel()">
