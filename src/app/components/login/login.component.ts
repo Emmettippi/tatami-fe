@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User, UserService } from '../../entities/user';
 import { LanguageService, MainService } from '../../services';
 import { BaseComponent } from '../base/base.component';
-import { MyRelations } from 'src/app/entities/user-relation';
 
 @Component({
     selector: 'tatami-login',

@@ -46,6 +46,38 @@
 SOCIAL SEARCH
 */
 
+.social-page-div {
+    /* border-bottom: 1px solid blue; */
+    height: 48px;
+    display: inline-flex;
+    width: 100%;
+}
+
+.btn-page {
+    width: 48px;
+    height: 48px;
+}
+
+.zero-third {
+    width: 33.3333333%;
+}
+
+.content-left {
+    text-align: start;
+}
+
+.content-center {
+    text-align: center;
+    font-family: 'Calibri';
+    font-weight: 700;
+    font-size: 22px;
+    font-style: italic;
+}
+
+.content-right {
+    text-align: end;
+}
+
 .social-search-body {
     padding: 0px;
     margin: 0px;

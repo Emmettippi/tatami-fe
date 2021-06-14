@@ -20,8 +20,6 @@ import { UserRelationService } from './entities/user-relation/user-relation.serv
 import { MainMenuModule } from './components/menu/menu.module';
 import { MainMenuComponent } from './components/menu/main-menu.component';
 
-// import { ChevronDownComponent, ChevronUpComponent } from './components/svgs';
-
 @NgModule({
     declarations: [
         AppComponent
@@ -30,9 +28,6 @@ import { MainMenuComponent } from './components/menu/main-menu.component';
 
         , LoginComponent
         , MainMenuComponent
-
-        // , ChevronDownComponent
-        // , ChevronUpComponent
     ],
     imports: [
         BrowserModule

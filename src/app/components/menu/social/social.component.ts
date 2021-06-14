@@ -45,6 +45,16 @@ export class SocialComponent extends BaseComponent implements OnInit {
         this.onSearch();
     }
 
+    isSearchEnabled(filter?: UserSearchModel): boolean {
+        if (!filter) {
+            filter = this.filter;
+        }
+        if (!filter) {
+            return false;
+        }
+        return !!(filter.nickname || filter.username);
+    }
+
     onFilterChange(event: string, filter: keyof UserSearchModel) {
         if (filter === 'nickname' || filter === 'username') {
             this.filter[filter] = event;
@@ -59,7 +69,7 @@ export class SocialComponent extends BaseComponent implements OnInit {
     }
 
     onSearch() {
-        if (this.filter.nickname || this.filter.username) {
+        if (this.isSearchEnabled()) {
             this.jitter++;
             const jitter = this.jitter;
             this.userService.searchUsers(this.filter)

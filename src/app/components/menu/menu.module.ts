@@ -6,7 +6,7 @@ import { NgxElectronModule } from 'ngx-electron';
 import { MenuComponent } from './menu/menu.component';
 import { SocialSubComponent } from './social-list/social-list.component';
 import { SocialComponent } from './social/social.component';
-import { ChevronDownComponent, ChevronUpComponent } from '../svgs';
+import { ChevronDownComponent, ChevronUpComponent, ChevronLeftComponent, ChevronRightComponent } from '../svgs';
 
 @NgModule({
     imports: [
@@ -19,7 +19,16 @@ import { ChevronDownComponent, ChevronUpComponent } from '../svgs';
         MenuComponent
         , SocialComponent
         , SocialSubComponent
+
         , ChevronDownComponent
+        , ChevronLeftComponent
+        , ChevronRightComponent
+        , ChevronUpComponent
+    ],
+    exports: [
+        ChevronDownComponent
+        , ChevronLeftComponent
+        , ChevronRightComponent
         , ChevronUpComponent
     ]
 })

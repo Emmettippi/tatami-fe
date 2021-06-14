@@ -7,8 +7,14 @@
 <div *ngIf="online" class="right-outlet">
     <button class="btn right-btn"
         [ngClass]="notOpenedRightPanelOnce ? 'no-animation' : isRightOpen ? 'right-btn-opened' : 'right-btn-closed'"
-        (click)="openCloseRightPanel()">
-        {{isRightOpen ? openedStr : closedStr}} </button>
+        (click)="openCloseRightPanel()"> 
+        <ng-container *ngIf="isRightOpen">
+            <tatami-chevron-right></tatami-chevron-right>
+        </ng-container>
+        <ng-container *ngIf="!isRightOpen">
+            <tatami-chevron-left></tatami-chevron-left>
+        </ng-container>
+    </button>
     <div class="right-div"
         [ngClass]="notOpenedRightPanelOnce ? 'no-right-animation' : isRightOpen ? 'right-div-opened' : 'right-div-closed'">
         <router-outlet name="right"></router-outlet>
