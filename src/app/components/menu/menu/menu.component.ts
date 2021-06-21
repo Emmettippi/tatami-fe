@@ -30,12 +30,12 @@ export class MenuComponent extends BaseComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    createLobby() {
-
+    joinLobby() {
+        this.navigateTo({'left': 'lobbies'}, true);
     }
 
-    joinLobby() {
-
+    createLobby() {
+        this.navigateTo({'left': 'lobby/null'}, true);
     }
 
     loadReplay() {

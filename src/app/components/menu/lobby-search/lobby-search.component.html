@@ -1,0 +1,27 @@
+<div class="background">
+</div>
+<div class="row tatami-lobbies">
+    <div class="blue-background">
+        <div class="">
+            <div class="label left-filter"> {{t('lobby.name')}}</div>
+            <div class="search right-filter">
+                <input class="form-control-custom " type="text" [ngModel]="filter.name"
+                    (ngModelChange)="onFilterChange($event, 'name')" />
+            </div>
+        </div>
+        <div class="">
+            <div class="label left-filter"> {{t('lobby.type')}}</div>
+            <div class="search right-filter">
+                <select class="form-control-custom " [value]="'ALL'" [ngModel]="filter.lobbyType"
+                    (ngModelChange)="onFilterChange($event, 'lobbyType')">
+                    <option selected="selected" [ngValue]="'ALL'">{{t('lobby.all')}}</option>
+                    <option [ngValue]="'PUBLIC'">{{t('lobby.public')}}</option>
+                    <option [ngValue]="'PRIVATE'">{{t('lobby.private')}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="go-back">
+    <button class="btn btn-danger btn-go-back" (click)="back()">{{t('back')}}</button>
+</div>

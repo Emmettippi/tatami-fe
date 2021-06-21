@@ -1,0 +1,51 @@
+.tatami-lobbies {
+    font-weight: 700;
+    font-family: 'Calibri';
+    font-size: 24px;
+    display: block;
+    top: 10%;
+    right: 30%;
+    left: 30%;
+    position: absolute;
+    padding-bottom: 20px;
+}
+
+.blue-background {
+    background-color: #0074d9;
+    border-radius: 10px;
+}
+
+.left-filter {
+    text-align: right;
+    padding: 15px 8px;
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    width: 40%;
+}
+
+.right-filter {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    padding: 0px 8px;
+}
+
+.go-back {
+    top: 10%;
+    right: 10%;
+    width: 100px;
+    height: 28px;
+    position: absolute;
+}
+
+.btn-go-back {
+    font-weight: 700;
+    font-family: 'Calibri';
+    font-size: 14px;
+}
+
+.search-input {
+    max-width: 100%;
+    background-color: #7fdbff;
+}

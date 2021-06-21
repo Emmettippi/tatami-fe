@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { SocialComponent } from './social/social.component';
+import { LobbySearchComponent } from './lobby-search/lobby-search.component';
 
 export const MENU_ROUTES: Routes = [
     {
@@ -14,15 +15,15 @@ export const MENU_ROUTES: Routes = [
         outlet: 'left'
     },
     {
+        path: 'lobbies',
+        component: LobbySearchComponent,
+        outlet: 'left'
+    },
+    {
         path: '*',
         component: MenuComponent,
         outlet: 'left'
     }
-    // , {
-    //     path: 'lobby',
-    //     component: null,
-    //     outlet: 'left'
-    // }
     // , {
     //     path: 'lobby/:id',
     //     component: null,
