@@ -9,7 +9,6 @@ import { NgxElectronModule } from 'ngx-electron';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { LoaderComponent } from './components/loader/loader.component';
 import { BaseComponent } from './components/base/base.component';
 import { LoginComponent } from './components/login/login.component';
 
@@ -23,7 +22,6 @@ import { MainMenuComponent } from './components/menu/main-menu.component';
 @NgModule({
     declarations: [
         AppComponent
-        , LoaderComponent
         , BaseComponent
 
         , LoginComponent

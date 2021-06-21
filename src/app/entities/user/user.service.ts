@@ -6,7 +6,7 @@ import { User, UserSearchDto } from './user.model';
 import { MainService } from '../../services/main.service';
 import { forkJoin, Subscription, timer } from 'rxjs';
 import { startWith, switchMap, takeWhile, map } from 'rxjs/operators';
-import { TATAMI_LOCAL_TOKEN } from './../../core/constants';
+import { TATAMI_LOCAL_TOKEN, getQueryParams } from './../../core/constants';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -129,7 +129,6 @@ export class UserService {
                         , this.getMyRelations()
                     ))
                 ).subscribe((response) => {
-                    // console.log(response[0].body.lastOnline);
                     // this.mainService.myRelations = response[1].body;
                 }, (error) => {
                     console.log(error);
@@ -159,6 +158,6 @@ export class UserService {
         if (!params) {
             params = new UserSearchModel();
         }
-        return this.http.get<Array<UserSearchDto>>(this.userUrl + 'search' + params.getQueryParams(), { observe: 'response' });
+        return this.http.get<Array<UserSearchDto>>(this.userUrl + 'search' + getQueryParams(params), { observe: 'response' });
     }
 }

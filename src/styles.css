@@ -160,3 +160,10 @@ textarea {
 .delay-9 {
     animation-delay: -1.5s;
 }
+
+.form-control-custom {
+    display: block;
+    width: 100%;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}

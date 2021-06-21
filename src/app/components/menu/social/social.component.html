@@ -10,14 +10,14 @@
             <div class="">
                 <div class="upper-label"> {{t('social.nickname')}}</div>
                 <div class="down-search">
-                    <input class="search-input" type="text" [ngModel]="filter.nickname"
+                    <input class="form-control-custom search-input" type="text" [ngModel]="filter.nickname"
                         (ngModelChange)="onFilterChange($event, 'nickname')" />
                 </div>
             </div>
             <div class="">
                 <div class="upper-label"> {{t('social.username')}}</div>
                 <div class="down-search">
-                    <input class="search-input" type="text" [ngModel]="filter.username"
+                    <input class="form-control-custom search-input" type="text" [ngModel]="filter.username"
                         (ngModelChange)="onFilterChange($event, 'username')" />
                 </div>
             </div>

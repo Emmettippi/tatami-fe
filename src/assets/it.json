@@ -44,9 +44,16 @@
     "commonFriends": " amici in comune",
     "lobby.join": "Unisciti ad una Lobby",
     "lobby.create": "Crea una nuova Lobby",
+    "lobby.name": "Nome Lobby",
+    "lobby.type": "Tipo Lobby",
+    "lobby.private": "Privata",
+    "lobby.public": "Pubblica",
+    "lobby.all": "Tutte",
+    "lobby.friends": "Amici in Lobby",
     "replay": "Carica un Replay",
     "logout": "Logout",
     "quit": "Esci",
+    "back": "Indietro",
     "expand": "Apri",
     "collapse": "Chiudi"
 }

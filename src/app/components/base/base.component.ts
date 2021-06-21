@@ -57,7 +57,7 @@ export class BaseComponent {
         return transl;
     }
 
-    navigateTo(commands: string | { [outlet: string]: string }) {
+    navigateTo(commands: string | { [outlet: string]: string }, relativeToParent = false) {
         if (typeof commands === 'string') {
             this.router.navigate([commands]);
         } else {
@@ -68,7 +68,7 @@ export class BaseComponent {
                     }
                 ]
                 , {
-                    relativeTo: this.route
+                    relativeTo: relativeToParent ? this.route.parent : this.route
                     , skipLocationChange: true
                 });
         }
