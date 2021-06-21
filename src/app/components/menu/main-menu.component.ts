@@ -42,39 +42,4 @@ export class MainMenuComponent extends BaseComponent implements OnInit {
         this.isRightOpen = !this.isRightOpen;
         this.notOpenedRightPanelOnce = false;
     }
-
-    onPageChange() {
-
-    }
-
-    onFilterChange() {
-
-    }
-
-    searchUsers() {
-
-    }
-
-    askFriendship() {
-
-    }
-
-    acceptFriendship() {
-
-    }
-
-    refuseFriendship() {
-
-    }
-
-    removeFriendship() {
-
-    }
-
-    blockUser() {
-
-    }
-
-    unlockUser() { }
-
 }

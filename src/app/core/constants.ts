@@ -18,3 +18,31 @@ export const HTTP_CODE = {
 
 export const TATAMI_HEADER_TOKEN = 'tatami-auth-token';
 export const TATAMI_LOCAL_TOKEN = 'tatami-auth-token';
+
+export const getQueryParams = (obj: any, forceNull: string[] = []): string => {
+    if (!obj || typeof obj !== 'object') {
+        return '';
+    }
+    if (!forceNull) {
+        forceNull = [];
+    }
+    let str = '';
+    for (const key in obj) {
+        if (key) {
+            const property = obj[key];
+            if (typeof property === 'number'
+                || typeof property === 'boolean'
+                || typeof property === 'string') {
+                if (property || property === 0 || forceNull.includes(key)) {
+                    if (!str) {
+                        str += '?';
+                    } else {
+                        str += '&';
+                    }
+                    str += key + '=' + property;
+                }
+            }
+        }
+    }
+    return str;
+};

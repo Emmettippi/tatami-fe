@@ -18,26 +18,4 @@ export class UserSearchModel {
         this.page = page || 0;
         this.size = size || 20;
     }
-
-    getQueryParams(): string {
-        let str = '';
-        for (const key in this) {
-            if (key) {
-                const property = this[key];
-                if (typeof property === 'number'
-                    || typeof property === 'boolean'
-                    || typeof property === 'string') {
-                    if (property || property === 0) {
-                        if (!str) {
-                            str += '?';
-                        } else {
-                            str += '&';
-                        }
-                        str += key + '=' + property;
-                    }
-                }
-            }
-        }
-        return str;
-    }
 }
