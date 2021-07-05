@@ -17,7 +17,6 @@ export class SocialComponent extends BaseComponent implements OnInit {
     readonly MY_REL_KEYS = MyRelations.keys;
 
     filter = new UserSearchModel();
-    jitter: number;
     users: UserSearchDto[] = [];
 
     constructor(
@@ -31,7 +30,6 @@ export class SocialComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.jitter = 0;
         this.cleanFilters();
     }
 
@@ -121,7 +119,7 @@ export class SocialComponent extends BaseComponent implements OnInit {
     }
 
     getKey(index: number): string {
-        for (const key of MyRelations.keys) {
+        for (const key of this.MY_REL_KEYS) {
             if (key) {
                 const u = this.mainService.myRelations[key].find(r => r.id === this.users[index].id);
                 if (u) {
