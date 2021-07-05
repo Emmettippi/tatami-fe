@@ -49,3 +49,37 @@
     max-width: 100%;
     background-color: #7fdbff;
 }
+
+.lobby-search-body {
+    padding: 0px;
+    margin: 0px;
+    background-color: #7fdbff;
+    align-items: center;
+}
+
+.lobby-page-div {
+    /* border-bottom: 1px solid blue; */
+    height: 48px;
+    display: inline-flex;
+    width: 100%;
+}
+
+.zero-third {
+    width: 33.3333333%;
+}
+
+.content-left {
+    text-align: start;
+}
+
+.content-center {
+    text-align: center;
+    font-family: 'Calibri';
+    font-weight: 700;
+    font-size: 22px;
+    font-style: italic;
+}
+
+.content-right {
+    text-align: end;
+}

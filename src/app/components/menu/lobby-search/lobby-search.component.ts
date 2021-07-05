@@ -1,5 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Subscription, timer } from 'rxjs';
+import { map, switchMap, takeWhile } from 'rxjs/operators';
 import { BaseComponent } from "../../base/base.component";
 import { Lobby, LobbySearchDto, LobbyService } from './../../../entities/lobby';
 import { MainService, LanguageService } from './../../../services';
@@ -10,15 +12,16 @@ import { UserService } from './../../../entities/user';
     templateUrl: './lobby-search.component.html',
     styleUrls: ['./lobby-search.component.css']
 })
-export class LobbySearchComponent extends BaseComponent implements OnInit {
+export class LobbySearchComponent extends BaseComponent implements OnInit, OnDestroy {
 
     get loading(): number {
         return this.mainService.loading;
     }
 
     filter = new LobbySearchDto();
-    jitter: number;
     lobbies: Lobby[] = [];
+
+    lobbyTimer: Subscription;
 
     constructor(
         protected router: Router,
@@ -69,13 +72,23 @@ export class LobbySearchComponent extends BaseComponent implements OnInit {
 
     onSearch() {
         if (this.isSearchEnabled()) {
-            this.jitter++;
-            const jitter = this.jitter;
-            this.lobbyService.searchLobby(this.filter)
+            this.searchLobby()
                 .subscribe((response) => {
-                    if (jitter === this.jitter) {
-                        this.lobbies = response.body;
+                    if (this.lobbyTimer) {
+                        this.lobbyTimer.unsubscribe();
+                        this.lobbyTimer = null;
                     }
+
+                    this.lobbyTimer = timer(0, 5000)
+                        .pipe(
+                            takeWhile(() => this.mainService.online),
+                            switchMap(() => this.searchLobby())
+                        ).subscribe((response) => {
+                            // this.mainService.myRelations = response[1].body;
+                        }, (error) => {
+                            console.log(error);
+                            // Should go to login
+                        });
                 }, (error) => {
                     console.log(error);
                 });
@@ -84,7 +97,26 @@ export class LobbySearchComponent extends BaseComponent implements OnInit {
         }
     }
 
+    searchLobby() {
+        this.jitter++;
+        const jitter = this.jitter;
+        return this.lobbyService.searchLobby(this.filter).pipe(
+            takeWhile(() => jitter === this.jitter),
+            map(response => {
+                this.lobbies = response.body;
+                return response;
+            })
+        );
+    }
+
     back() {
-        this.navigateTo({'left': 'menu'}, true);
+        this.navigateTo({ 'left': 'menu' }, true);
+    }
+
+    ngOnDestroy() {
+        if (this.lobbyTimer) {
+            this.lobbyTimer.unsubscribe();
+            this.lobbyTimer = null;
+        }
     }
 }
