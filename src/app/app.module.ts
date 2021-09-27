@@ -18,6 +18,8 @@ import { UserRelationService } from './entities/user-relation/user-relation.serv
 
 import { MainMenuModule } from './components/menu/menu.module';
 import { MainMenuComponent } from './components/menu/main-menu.component';
+import { GameModule } from './components/game/game.module';
+import { GameComponent } from './components/game/game.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +28,7 @@ import { MainMenuComponent } from './components/menu/main-menu.component';
 
         , LoginComponent
         , MainMenuComponent
+        , GameComponent
     ],
     imports: [
         BrowserModule
@@ -34,6 +37,7 @@ import { MainMenuComponent } from './components/menu/main-menu.component';
         , AppRoutingModule
         , HttpClientModule
         , MainMenuModule
+        , GameModule
         , NgxElectronModule
     ],
     providers: [
