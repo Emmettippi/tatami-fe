@@ -1,0 +1,32 @@
+.tile {
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+}
+
+.tile-black {
+    background-color: black;
+    border: 1px solid grey;
+
+    animation: from-focus;
+    animation-timing-function: ease-out;
+    animation-duration: 0.1s;
+}
+
+.tile-white {
+    background-color: white;
+    border: 1px solid grey;
+
+    animation: from-focus;
+    animation-timing-function: ease-out;
+    animation-duration: 0.1s;
+}
+
+@keyframes from-focus {
+    from {
+        background-color: #60c0c0;
+    }
+    to {
+
+    }
+}
