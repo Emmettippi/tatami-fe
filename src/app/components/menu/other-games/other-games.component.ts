@@ -11,10 +11,6 @@ import { MainService, LanguageService } from '../../../services';
 })
 export class OtherGamesComponent extends BaseComponent implements OnInit {
 
-    get online() {
-        return this.mainService.online;
-    }
-
     constructor(
         protected router: Router,
         protected route: ActivatedRoute,

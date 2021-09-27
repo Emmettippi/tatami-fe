@@ -14,10 +14,6 @@ import { UserService } from './../../../entities/user';
 })
 export class LobbySearchComponent extends BaseComponent implements OnInit, OnDestroy {
 
-    get loading(): number {
-        return this.mainService.loading;
-    }
-
     filter = new LobbySearchDto();
     lobbies: Lobby[] = [];
 

@@ -12,10 +12,6 @@ import { MainService } from './../../services/main.service';
 })
 export class MainMenuComponent extends BaseComponent implements OnInit {
 
-    get loading(): number {
-        return this.mainService.loading;
-    }
-
     notOpenedRightPanelOnce = true;
     readonly openedStr = '>';
     readonly closedStr = '<';
