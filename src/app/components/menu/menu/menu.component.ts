@@ -31,15 +31,19 @@ export class MenuComponent extends BaseComponent implements OnInit {
     }
 
     joinLobby() {
-        this.navigateTo({'left': 'lobbies'}, true);
+        this.navigateTo({ 'left': 'lobbies' }, true);
     }
 
     createLobby() {
-        this.navigateTo({'left': 'lobby/null'}, true);
+        this.navigateTo({ 'left': 'lobby/null' }, true);
     }
 
     loadReplay() {
 
+    }
+
+    otherGames() {
+        this.navigateTo({ 'left': 'other-games' }, true);
     }
 
     logout() {

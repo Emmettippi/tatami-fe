@@ -2,6 +2,10 @@ import { Routes } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { SocialComponent } from './social/social.component';
 import { LobbySearchComponent } from './lobby-search/lobby-search.component';
+import { OtherGamesComponent } from './other-games/other-games.component';
+
+import { LightsoutMenuComponent } from './lightsout-menu/lightsout-menu.component';
+import { LightsoutRulesComponent } from './lightsout-rules/lightsout-rules.component';
 
 export const MENU_ROUTES: Routes = [
     {
@@ -17,6 +21,21 @@ export const MENU_ROUTES: Routes = [
     {
         path: 'lobbies',
         component: LobbySearchComponent,
+        outlet: 'left'
+    },
+    {
+        path: 'other-games',
+        component: OtherGamesComponent,
+        outlet: 'left'
+    },
+    {
+        path: 'lightsout-menu',
+        component: LightsoutMenuComponent,
+        outlet: 'left'
+    },
+    {
+        path: 'lightsout-rules',
+        component: LightsoutRulesComponent,
         outlet: 'left'
     },
     {
