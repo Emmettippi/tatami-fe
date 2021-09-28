@@ -10,10 +10,25 @@
 }
 
 .lightsout-separator {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     border: 2px solid black;
     padding: 10px;
     margin: auto;
+    font-family: 'Calibri';
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+}
+
+.separator-trials {
+    display: inline-block;
+
+}
+
+.separator-timer {
+    display: inline-block;
+
 }
 
 .lightsout-row {

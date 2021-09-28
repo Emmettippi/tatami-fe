@@ -23,9 +23,6 @@ export class GameComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        switch (this.gameService.gameRoot) {
-            case 'infinite':
-                this.navigateTo({ 'game': 'lightsout-infinite' });
-        }
+        this.navigateTo({ 'game': this.gameService.gameRoot });
     }
 }

@@ -26,11 +26,12 @@ export class LightsoutMenuComponent extends BaseComponent implements OnInit {
     }
 
     training() {
-
+        this.gameService.gameRoot = 'lightsout-training';
+        this.navigateTo('game');
     }
 
     infinite() {
-        this.gameService.gameRoot = 'infinite';
+        this.gameService.gameRoot = 'lightsout-infinite';
         this.navigateTo('game');
     }
 

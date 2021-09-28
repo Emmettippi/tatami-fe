@@ -1,1 +1,2 @@
-<div class="tile" [ngClass]="{'tile-black': value, 'tile-white': !value}" (click)="click()"></div>
+<div [id]="id" class="tile" [ngClass]="{'tile-black': value, 'tile-white': !value, 'tile-clickable': clickable}"
+    (click)="click()"></div>

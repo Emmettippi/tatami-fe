@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { BaseComponent } from './../../../base/base.component';
 import { LanguageService } from './../../../../services/language.service';
 import { UserService } from './../../../../entities/user/user.service';
@@ -13,6 +14,7 @@ import { MainService } from './../../../../services/main.service';
 export class LightsoutTileComponent extends BaseComponent implements OnInit {
 
     @Input() id: string;
+    @Input() clickable = true;
 
     private _value = false;
     @Input() set value(val: boolean) {
@@ -38,6 +40,8 @@ export class LightsoutTileComponent extends BaseComponent implements OnInit {
     }
 
     click() {
-        this.subClick.emit();
+        if (this.clickable) {
+            this.subClick.emit();
+        }
     }
 }
