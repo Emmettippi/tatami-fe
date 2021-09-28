@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { BaseComponent } from './components/base/base.component';
 import { LoginComponent } from './components/login/login.component';
 
-import { MainService, LanguageService, HttpErrorInterceptor } from './services';
+import { MainService, LanguageService, HttpErrorInterceptor, GameService } from './services';
 import { UserService } from './entities/user/user.service';
 import { UserRelationService } from './entities/user-relation/user-relation.service';
 
@@ -43,6 +43,7 @@ import { GameComponent } from './components/game/game.component';
     providers: [
         MainService
         , LanguageService
+        , GameService
         , UserService
         , UserRelationService
         , {

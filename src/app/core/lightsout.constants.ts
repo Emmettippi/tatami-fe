@@ -130,3 +130,68 @@ export const TABLES: { [key: string]: boolean[][][] } = {
     , '9': []
     , '10': []
 };
+
+export class LightsoutGameTable {
+    screen: boolean[][];
+    table: boolean[][];
+    startup: boolean[][];
+    readonly trials: number;
+    clicks: number;
+
+    constructor(size: number, trials: number) {
+        if (!size || size < 4) {
+            size = 4;
+        }
+        if (size > 7) {
+            size = 7;
+        }
+        size = Math.floor(size);
+
+        if (!trials || trials < 1) {
+            trials = 1;
+        }
+        if (trials > size) {
+            trials = size;
+        }
+        trials = Math.floor(trials);
+
+        this.clicks = 0;
+        this.trials = trials;
+
+        const tablesOfSize = TABLES[size.toString()];
+
+        this.screen = tablesOfSize[Math.floor(Math.random() * tablesOfSize.length)];
+        this.table = [...this.screen];
+
+        const clickedTiles = new Array<string>();
+        while (clickedTiles.length < this.trials) {
+            const i = Math.floor(Math.random() * this.screen.length);
+            const j = Math.floor(Math.random() * this.screen[i].length);
+            if (!clickedTiles.includes(i + '-' + j)) {
+                this._clickTile(i, j);
+                clickedTiles.push(i + '-' + j);
+            }
+        }
+
+        this.startup = [...this.table];
+    }
+
+    private _clickTile(i: number, j: number): void {
+        for (let _i = i - 1; _i <= i + 1; _i++) {
+            for (let _j = j - 1; _j <= j + 1; _j++) {
+                if (!(_i < 0 || _i >= this.table.length || _j < 0 || _j >= this.table[_i].length)) {
+                    this.table[_i][_j] = !this.table[_i][_j];
+                }
+            }
+        }
+    }
+
+    clickTile(i: number, j: number): void {
+        this._clickTile(i, j);
+        this.clicks++;
+    }
+
+    isWin(): boolean {
+        return JSON.stringify(this.screen) === JSON.stringify(this.table);
+    }
+}

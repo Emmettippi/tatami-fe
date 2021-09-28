@@ -6,6 +6,7 @@ import { NgxElectronModule } from 'ngx-electron';
 
 import { LightsoutTileComponent } from './lightsout/tile/tile.component';
 import { LightsoutInfiniteComponent } from './lightsout/infinite/infinite.component';
+import { LightsoutTileTableComponent } from './lightsout/tile-table/tile-table.component';
 
 import { LoaderComponent } from '../loader/loader.component';
 import { ChevronDownComponent, ChevronUpComponent, ChevronLeftComponent, ChevronRightComponent } from '../svgs';
@@ -19,6 +20,7 @@ import { ChevronDownComponent, ChevronUpComponent, ChevronLeftComponent, Chevron
     ],
     declarations: [
         LightsoutTileComponent
+        , LightsoutTileTableComponent
         , LightsoutInfiniteComponent
     ],
     exports: [

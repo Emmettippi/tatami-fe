@@ -1,0 +1,19 @@
+<div class="lightsout-table-component">
+    <div class="lightsout-table">
+        <div *ngFor="let row of table.screen; let i = index" class="lightsout-row">
+            <tatami-lightsout-tile *ngFor="let tile of row; let j = index" [id]="'screen-' + i + '-' + j"
+                [value]="tile">
+            </tatami-lightsout-tile>
+        </div>
+    </div>
+    <div class="lightsout-separator">
+        {{table.trials - table.clicks}}
+    </div>
+    <div class="lightsout-table">
+        <div *ngFor="let row of table.table; let i = index" class="lightsout-row">
+            <tatami-lightsout-tile *ngFor="let tile of row; let j = index" [id]="'table-' + i + '-' + j" [value]="tile"
+                (subClick)="click(i, j)">
+            </tatami-lightsout-tile>
+        </div>
+    </div>
+</div>

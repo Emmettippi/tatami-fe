@@ -2,6 +2,8 @@
     height: 50px;
     width: 50px;
     display: inline-block;
+    padding: 0px;
+    margin: 0px;
 }
 
 .tile-black {

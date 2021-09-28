@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../entities/user';
 import { BaseComponent } from '../../base/base.component';
-import { MainService, LanguageService } from '../../../services';
+import { MainService, LanguageService, GameService } from '../../../services';
 
 @Component({
     selector: 'tatami-lightsout-menu',
@@ -16,7 +16,8 @@ export class LightsoutMenuComponent extends BaseComponent implements OnInit {
         protected route: ActivatedRoute,
         protected mainService: MainService,
         protected userService: UserService,
-        protected languageService: LanguageService
+        protected languageService: LanguageService,
+        private gameService: GameService
     ) {
         super(router, route, mainService, userService, languageService);
     }
@@ -29,6 +30,8 @@ export class LightsoutMenuComponent extends BaseComponent implements OnInit {
     }
 
     infinite() {
+        this.gameService.gameRoot = 'infinite';
+        this.navigateTo('game');
     }
 
     thirtySeconds() {
