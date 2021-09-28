@@ -1,0 +1,71 @@
+.expansion-btn {
+    /* height: 48px;
+    width: 48px; */
+    text-align: justify;
+    border-radius: 10px;
+}
+
+.profile-div {
+    padding: 0px;
+    margin: 0px;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.profile-accordion {
+    padding: 0px;
+    margin: 0px;
+    /* background-color: #0074d9; */
+    border-radius: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.profile-header {
+    font-weight: 700;
+    font-family: 'Calibri';
+    font-size: 24px;
+    font-style: italic;
+    margin-left: 10px;
+    color: #ffffff;
+}
+
+.profile-body {
+    padding: 0px;
+    margin: 0px;
+    background-color: #7fdbff;
+    align-items: center;
+}
+
+.left-input-label {
+    text-align: right;
+    padding: 15px 8px;
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    width: 40%;
+}
+
+.right-input-form {
+    position: relative;
+    display: inline-block;
+    width: 60%;
+    padding: 0px 8px;
+}
+
+.btn-social {
+    height: 28px;
+    width: 80px;
+    font-size: 14px;
+    padding: 0px;
+}
+
+.error-message {
+    background-color: #7fdbff;
+    color: #ff0000;
+    font-family: 'Times';
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    padding: 4px 8px;
+}

@@ -1,0 +1,51 @@
+<div class="row profile-accordion">
+    <button class="btn btn-primary expansion-btn" [title]="getExpandCollapseTitle()" (click)="onBtnOpenClick()">
+        <ng-container *ngIf="expanded">
+            <tatami-chevron-up></tatami-chevron-up>
+        </ng-container>
+        <ng-container *ngIf="!expanded">
+            <tatami-chevron-down></tatami-chevron-down>
+        </ng-container>
+        <span class="profile-header">{{t('social.myself')}}</span>
+    </button>
+</div>
+<div *ngIf="expanded" class="profile-body">
+    <div class="">
+        <div class="left-input-label"> {{t('username')}}:</div>
+        <div class="right-input-form">
+            <input class="form-control-custom login-input" type="text" [(ngModel)]="user.username" [disabled]="true" />
+        </div>
+    </div>
+    <div class="">
+        <div class="left-input-label"> {{t('email')}}:</div>
+        <div class="right-input-form">
+            <input class="form-control-custom login-input" type="text" [(ngModel)]="user.email" [disabled]="true" />
+        </div>
+    </div>
+    <div class="">
+        <div class="left-input-label"> {{t('nickname')}}:</div>
+        <div class="right-input-form">
+            <input class="form-control-custom login-input" type="text" [(ngModel)]="user.nickname" />
+        </div>
+    </div>
+    <div class="">
+        <div class="left-input-label"> {{t('oldpassword')}}:</div>
+        <div class="right-input-form">
+            <input class="form-control-custom login-input" type="password" [(ngModel)]="user.password" />
+        </div>
+    </div>
+    <div class="">
+        <div class="left-input-label"> {{t('newPassword')}}:</div>
+        <div class="right-input-form">
+            <input class="form-control-custom login-input" type="password" [(ngModel)]="user.newPassword" />
+        </div>
+    </div>
+    <div class="">
+        <div *ngFor="let errorMessage of updateErrorMessages" class="error-message">
+            {{t(errorMessage)}}
+        </div>
+        <div *ngFor="let errorMessage of errorMessages" class="error-message" (click)="resetErrorMessage()">
+            {{t(errorMessage)}}
+        </div>
+    </div>
+</div>

@@ -9,6 +9,7 @@ import { LoaderComponent } from '../loader/loader.component';
 import { MenuComponent } from './menu/menu.component';
 import { SocialSubComponent } from './social-list/social-list.component';
 import { SocialComponent } from './social/social.component';
+import { ProfileComponent } from './profile/profile.component';
 import { ChevronDownComponent, ChevronUpComponent, ChevronLeftComponent, ChevronRightComponent } from '../svgs';
 import { LobbySearchComponent } from './lobby-search/lobby-search.component';
 
@@ -24,6 +25,7 @@ import { LobbySearchComponent } from './lobby-search/lobby-search.component';
         , LoaderComponent
         , SocialComponent
         , SocialSubComponent
+        , ProfileComponent
         , LobbySearchComponent
 
         , ChevronDownComponent

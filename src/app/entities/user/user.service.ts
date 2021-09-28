@@ -73,17 +73,16 @@ export class UserService {
         if (!user.email) {
             errorMap.set('email', 'email.error');
         }
+        if (!user.username) {
+            errorMap.set('username', 'username.error');
+        }
         if (!user.nickname) {
             errorMap.set('nickname', 'nickname.error');
         }
         if (!user.password) {
-            errorMap.set('password', 'password.error');
-        }
-        if (!user.newPassword) {
-            errorMap.set('newPassword', 'newPassword.error');
-        }
-        if (!user.username) {
-            errorMap.set('username', 'username.error');
+            if (!user.newPassword) {
+                errorMap.set('newPassword', 'newPassword.error');
+            }
         }
         return errorMap;
     }
