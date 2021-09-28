@@ -10,8 +10,11 @@ import { MenuComponent } from './menu/menu.component';
 import { SocialSubComponent } from './social-list/social-list.component';
 import { SocialComponent } from './social/social.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ChevronDownComponent, ChevronUpComponent, ChevronLeftComponent, ChevronRightComponent } from '../svgs';
 import { LobbySearchComponent } from './lobby-search/lobby-search.component';
+import { OtherGamesComponent } from './other-games/other-games.component';
+import { LightsoutMenuComponent } from './lightsout-menu/lightsout-menu.component'
+import { LightsoutRulesComponent } from './lightsout-rules/lightsout-rules.component';
+import { ChevronDownComponent, ChevronUpComponent, ChevronLeftComponent, ChevronRightComponent } from '../svgs';
 
 @NgModule({
     imports: [
@@ -27,6 +30,10 @@ import { LobbySearchComponent } from './lobby-search/lobby-search.component';
         , SocialSubComponent
         , ProfileComponent
         , LobbySearchComponent
+        , OtherGamesComponent
+
+        , LightsoutMenuComponent
+        , LightsoutRulesComponent
 
         , ChevronDownComponent
         , ChevronLeftComponent

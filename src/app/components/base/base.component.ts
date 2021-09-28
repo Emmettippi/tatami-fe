@@ -20,6 +20,9 @@ export class BaseComponent {
     get loggedUser(): User {
         return this.mainService.logged;
     }
+    get loading(): number {
+        return this.mainService.loading;
+    }
     get TRANSL(): Map<string, object> {
         return this.languageService.TRANSL;
     }

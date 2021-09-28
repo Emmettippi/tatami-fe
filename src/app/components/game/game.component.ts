@@ -6,15 +6,11 @@ import { UserService } from './../../entities/user/user.service';
 import { MainService } from './../../services/main.service';
 
 @Component({
-    selector: 'tatami-main-menu',
-    templateUrl: './main-menu.component.html',
-    styleUrls: ['./main-menu.component.css']
+    selector: 'tatami-game',
+    templateUrl: './game.component.html',
+    styleUrls: ['./game.component.css']
 })
-export class MainMenuComponent extends BaseComponent implements OnInit {
-
-    notOpenedRightPanelOnce = true;
-    readonly openedStr = '>';
-    readonly closedStr = '<';
+export class GameComponent extends BaseComponent implements OnInit {
 
     constructor(
         protected router: Router,
@@ -24,18 +20,8 @@ export class MainMenuComponent extends BaseComponent implements OnInit {
         protected languageService: LanguageService
     ) {
         super(router, route, mainService, userService, languageService);
-        this.isRightOpen = false;
     }
 
     ngOnInit(): void {
-        this.navigateTo({
-            left: 'menu'
-            , right: 'social'
-        });
-    }
-
-    openCloseRightPanel() {
-        this.isRightOpen = !this.isRightOpen;
-        this.notOpenedRightPanelOnce = false;
     }
 }

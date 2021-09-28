@@ -1,0 +1,21 @@
+.rules {
+    color: white;
+    font-family: 'Calibri';
+    margin-top: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: justify;
+}
+
+.btn-div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.menu-btn {
+    width: 100%;
+    font-size: 28px;
+    font-weight: 700;
+}
