@@ -273,7 +273,7 @@ export class LightsoutGameTable {
             const tablesOfSizeX = TABLES[size.toString()].filter((t) => {
                 return types.includes(t.type);
             });
-            const chosenRandomTable = tablesOfSizeX[Math.floor(Math.random() * (tablesOfSizeX.length - 1)) + 1].table;
+            const chosenRandomTable = tablesOfSizeX[Math.floor(Math.random() * tablesOfSizeX.length)].table;
 
             this.screen = new Array<boolean[]>();
             this.table = new Array<boolean[]>();
